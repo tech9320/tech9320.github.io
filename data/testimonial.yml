@@ -1,0 +1,34 @@
+enable  : true
+title   : "RECENZIJE NAŠIH KLIJENATA"
+subtitle: "Dokaz da je saradnja sa nama - pun pogodak."
+testimonial_item :
+  - thumb : "images/testimonial/jovana-konjik.jpeg"
+    name  : "Jovana Konjik"
+    company_position: "Developer @ TeamForce"
+    quote : > 
+              "Veoma uspešna i laka saradnja sa momcima. Izlaze u susret za sve!"
+  - thumb : "images/testimonial/tijana-marinkovic.jpeg"
+    name  : "Tijana Marinković"
+    company_position: "Project Manager @ ELAB"
+    quote : > 
+              "O kakvom god projektu da je reč, imam puno poverenje u ovaj tim."
+  - thumb : "images/testimonial/vlada-corac.jpeg"
+    name  : "Vladislav Ćorac"
+    company_position: "Control Officer @ SMATSA"
+    quote : > 
+              "Sve pohvale za celu ekipu! Nadam se daljoj saradnji."
+  - thumb : "images/testimonial/obren-tomonjic.jpeg"
+    name  : "Obren Tomonjić"
+    company_position: "Owner @ Santo Domingo"
+    quote : > 
+              "I kvalitet i kvantitet, sve se vrlo lako i brzo dogovara!"
+  - thumb : "images/testimonial/luis-barroso.jpeg"
+    name  : "Luis Barroso"
+    company_position: "Developer @ Grover"
+    quote : > 
+              "They were very professional, despite the fact that it was a small project!"
+  - thumb : "images/testimonial/nenad-djordjevic.jpeg"
+    name  : "Nenad Đorđević"
+    company_position: "Developer @ Basiq"
+    quote : > 
+              "Brzo shvataju sve što treba da se odradi, i jednako brzo i odrade sve."

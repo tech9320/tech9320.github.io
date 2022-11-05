@@ -1,0 +1,127 @@
+baseURL       = "http://example.org/"
+languageCode  = "en-us"
+title         = "Tech9320 | Ideja -> Realizacija"
+theme         = "roxo"
+summarylength = 25
+
+# Site Menus
+[menu]
+  # Navbar Menus
+  [[menu.nav]]
+    name    = "Početna stranica"
+    url     = ""
+    weight  = 1
+  [[menu.nav]]
+    name    = "O nama"
+    url     = "about"
+    weight  = 2
+  [[menu.nav]]
+    name    = "Usluge"
+    url     = "portfolio"
+    weight  = 3
+  [[menu.nav]]
+    name    = "Blog"
+    url     = "blog"
+    weight  = 4
+  [[menu.nav]]
+    name    = "Kontakt"
+    url     = "contact"
+    weight  = 5
+
+# Site Params
+[params]
+  logo = "images/logo.png"
+  dateFormat = "26 FEB 1994"
+  # Meta data
+  description = "Tech9320 | Where Ideas Become Reality"
+  author = "Tech9320"
+  # Google Analitycs
+  googleAnalitycsID = "Your ID"
+  fabform  = "https://fabform.io/f/7Fmmh5X"
+
+  # Contact Form
+  [params.contactForm]
+    placeholder_first_name        = "Ime"
+    placeholder_last_name         = "Prezime"
+    placeholder_email             = "Email"
+    placeholder_project_type      = "Tip projekta"
+    placeholder_about_the_project = "O projektu"
+    send_message                  = "Pošalji"
+
+    [[params.contactForm.projectType]]
+      value = "dd"
+      title  = "Desktop Aplikacija"
+    [[params.contactForm.projectType]]
+      value = "wd"
+      title  = "Web Aplikacija"
+    [[params.contactForm.projectType]]
+      value = "ws"
+      title  = "Web Sajt"
+    [[params.contactForm.projectType]]
+      value = "md"
+      title  = "Mobilna Aplikacija"
+    [[params.contactForm.projectType]]
+      value = "ot"
+      title  = "Ostalo"
+  
+  # Navbar Action Button
+  [params.navAction]
+    status  = true
+    name    = "Kontakt"
+    url     = "contact"
+  
+
+  # Banner Section
+  [params.banner]
+    enable                = true
+    background_image      = "images/backgrounds/hero-tech.png"
+    heading               = "Dobrodošli!"
+    tagline               = "Mesto gde ideja postaje stvarnost"
+    primary_button        = "Naše usluge"
+    primary_button_url    = "portfolio"
+    secondary_button      = "Kontaktirajte nas"
+    secondary_button_url  = "contact"
+
+  [params.portfolio]
+    enable    = true
+    title     = "ŠTA MI TO ZAPRAVO NUDIMO?"
+    subtitle  = "Pogledajte u čemu smo eksperti i kako možemo da vam pomognemo!"
+
+  [params.call_to_action]
+    enable              = true
+    background_image    = "images/backgrounds/cta-background.jpg"
+    title               = "Zvuči okej?"
+    primary_button      = "Kontaktirajte nas"
+    primary_button_url  = "contact"
+
+  [params.footer]
+    # Footer Contact Info
+    [params.footer.contactInfo]
+      title   = "Kontakt informacije"
+      address = "11000 Beograd, Srbija"
+      email = "tech9320-contact@gmail.com"
+      # Footer Sitemap
+      [params.footer.sitemap]
+        title   = "Mapa sajta"
+        [[params.footer.sitemap.link]]
+          name = "O nama"
+          url  = "about"
+        [[params.footer.sitemap.link]]
+          name = "Usluge"
+          url  = "portfolio"
+        [[params.footer.sitemap.link]]
+          name = "Blog"
+          url  = "blog"
+        [[params.footer.sitemap.link]]
+          name = "Kontakt"
+          url  = "contact"
+      # Footer Social Media
+      [params.footer.social]
+        title   = "Pratite naš rad!"
+        [[params.footer.social.link]]
+          name = "GitHub"
+          url  = "https://github.com/tech9320"
+      # Footer Service
+      [params.footer.service]
+        title       = "Tu smo da vam pomognemo"
+        description = "Sajt? Može!<br>Aplikacija? Može!<br>Visok kvalitet zagarantovan!"

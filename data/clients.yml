@@ -1,0 +1,4 @@
+enable        : true
+title         : "Gomila uspešnih projekata"
+client_logos  : 
+  ["images/projects/air.png", "images/projects/dodrefn.png", "images/projects/semaphore.png", "images/projects/p1.png", "images/projects/hugo.png"]
