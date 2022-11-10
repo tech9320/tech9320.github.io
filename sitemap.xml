@@ -1,42 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-  xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  <url>
-    <loc>https://9320.tech/blog/blog-post-1/</loc>
-    <lastmod>2022-10-10T13:45:06+06:00</lastmod>
-  </url><url>
-    <loc>https://9320.tech/</loc>
-    <lastmod>2022-10-10T13:45:06+06:00</lastmod>
-  </url><url>
-    <loc>https://9320.tech/portfolio/web-aplikacije/</loc>
-    <lastmod>2022-06-29T15:55:44+06:00</lastmod>
-  </url><url>
-    <loc>https://9320.tech/portfolio/web-sajtovi/</loc>
-    <lastmod>2022-06-22T15:55:44+06:00</lastmod>
-  </url><url>
-    <loc>https://9320.tech/portfolio/desktop-aplikacije/</loc>
-    <lastmod>2022-06-21T20:56:42+06:00</lastmod>
-  </url><url>
-    <loc>https://9320.tech/blog/</loc>
-    <lastmod>2019-12-23T20:17:01+06:00</lastmod>
-  </url><url>
-    <loc>https://9320.tech/contact/</loc>
-    <lastmod>2019-12-23T20:17:01+06:00</lastmod>
-  </url><url>
-    <loc>https://9320.tech/portfolio/</loc>
-    <lastmod>2019-12-23T16:48:28+06:00</lastmod>
-  </url><url>
-    <loc>https://9320.tech/portfolio/mobilne-aplikacije/</loc>
-    <lastmod>2019-12-23T15:56:43+06:00</lastmod>
-  </url><url>
-    <loc>https://9320.tech/about/</loc>
-    <lastmod>2018-07-12T18:19:33+06:00</lastmod>
-  </url><url>
-    <loc>https://9320.tech/portfolio/ostalo/</loc>
-    <lastmod>2017-12-23T15:58:10+06:00</lastmod>
-  </url><url>
-    <loc>https://9320.tech/categories/</loc>
-  </url><url>
-    <loc>https://9320.tech/tags/</loc>
-  </url>
-</urlset>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <sitemap>
+    <loc>https://9320.tech/sr/sitemap.xml</loc>
+    
+      <lastmod>2022-10-10T13:45:06+06:00</lastmod>
+    
+  </sitemap>
+  
+  <sitemap>
+    <loc>https://9320.tech/en/sitemap.xml</loc>
+    
+      <lastmod>2022-10-10T13:45:06+06:00</lastmod>
+    
+  </sitemap>
+  
+</sitemapindex>
