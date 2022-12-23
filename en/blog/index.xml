@@ -8,13 +8,21 @@
     <language>sr</language>
     <lastBuildDate>Mon, 23 Dec 2019 20:17:01 +0600</lastBuildDate><atom:link href="https://9320.tech/en/blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>First Place at the Open Data Competition</title>
+      <link>https://9320.tech/en/blog/egzakta/</link>
+      <pubDate>Fri, 23 Dec 2022 09:45:06 +0600</pubDate>
+      
+      <guid>https://9320.tech/en/blog/egzakta/</guid>
+      <description>The Open Data competition, organized by Egzakta Advisory and the Research and Development Center of the Faculty of Organizational Sciences, was completed on Thursday, December 22nd.</description>
+    </item>
+    
+    <item>
       <title>It&#39;s alive!</title>
       <link>https://9320.tech/en/blog/blog-post-1/</link>
       <pubDate>Mon, 10 Oct 2022 13:45:06 +0600</pubDate>
       
       <guid>https://9320.tech/en/blog/blog-post-1/</guid>
-      <description>With this post, we officially open the website of our freelancing team - Tech9320.
-The idea was simmering for several years, but it came to life only in the middle of 2022.</description>
+      <description>With this post, we officially open the website of our freelancing team - Tech9320.</description>
     </item>
     
   </channel>

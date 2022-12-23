@@ -2,6 +2,32 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://9320.tech/blog/egzakta/</loc>
+    <lastmod>2022-12-23T09:45:06+06:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://9320.tech/en/blog/egzakta/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="sr"
+                href="https://9320.tech/blog/egzakta/"
+                />
+  </url><url>
+    <loc>https://9320.tech/</loc>
+    <lastmod>2022-12-23T09:45:06+06:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://9320.tech/en/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="sr"
+                href="https://9320.tech/"
+                />
+  </url><url>
     <loc>https://9320.tech/blog/blog-post-1/</loc>
     <lastmod>2022-10-10T13:45:06+06:00</lastmod>
     <xhtml:link
@@ -13,19 +39,6 @@
                 rel="alternate"
                 hreflang="sr"
                 href="https://9320.tech/blog/blog-post-1/"
-                />
-  </url><url>
-    <loc>https://9320.tech/</loc>
-    <lastmod>2022-10-10T13:45:06+06:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://9320.tech/en/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="sr"
-                href="https://9320.tech/"
                 />
   </url><url>
     <loc>https://9320.tech/portfolio/web-aplikacije/</loc>
