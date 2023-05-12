@@ -6,7 +6,16 @@
     <description>Recent content on Tech9320 | Ideja -&gt; Realizacija</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>sr</language>
-    <lastBuildDate>Fri, 05 May 2023 18:15:33 +0600</lastBuildDate><atom:link href="https://9320.tech/sr/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 11 May 2023 16:45:06 +0600</lastBuildDate><atom:link href="https://9320.tech/sr/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Node.js - najnovije verzije i feature-i</title>
+      <link>https://9320.tech/sr/blog/nodejs-versions/</link>
+      <pubDate>Thu, 11 May 2023 16:45:06 +0600</pubDate>
+      
+      <guid>https://9320.tech/sr/blog/nodejs-versions/</guid>
+      <description>Node.js je popularno JavaScript runtime okruženje koje omogućava programerima da grade skalabilne aplikacije visokih performansi.</description>
+    </item>
+    
     <item>
       <title>ECMAscript 2023 - Nizovi&#43;&#43;</title>
       <link>https://9320.tech/sr/blog/1681665695-ecma/</link>

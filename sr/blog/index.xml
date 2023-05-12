@@ -8,6 +8,15 @@
     <language>sr</language>
     <lastBuildDate>Mon, 23 Dec 2019 20:17:01 +0600</lastBuildDate><atom:link href="https://9320.tech/sr/blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Node.js - najnovije verzije i feature-i</title>
+      <link>https://9320.tech/sr/blog/nodejs-versions/</link>
+      <pubDate>Thu, 11 May 2023 16:45:06 +0600</pubDate>
+      
+      <guid>https://9320.tech/sr/blog/nodejs-versions/</guid>
+      <description>Node.js je popularno JavaScript runtime okruženje koje omogućava programerima da grade skalabilne aplikacije visokih performansi.</description>
+    </item>
+    
+    <item>
       <title>ECMAscript 2023 - Nizovi&#43;&#43;</title>
       <link>https://9320.tech/sr/blog/1681665695-ecma/</link>
       <pubDate>Sun, 30 Apr 2023 13:45:06 +0600</pubDate>

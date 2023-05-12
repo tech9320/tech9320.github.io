@@ -8,6 +8,15 @@
     <language>sr</language>
     <lastBuildDate>Mon, 23 Dec 2019 20:17:01 +0600</lastBuildDate><atom:link href="https://9320.tech/en/blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Node.js - latest versions and features</title>
+      <link>https://9320.tech/en/blog/nodejs-versions/</link>
+      <pubDate>Thu, 11 May 2023 16:45:06 +0600</pubDate>
+      
+      <guid>https://9320.tech/en/blog/nodejs-versions/</guid>
+      <description>Node.js is a popular JavaScript runtime that allows developers to build scalable and high-performance applications.</description>
+    </item>
+    
+    <item>
       <title>ECMAscript 2023 - Arrays&#43;&#43;</title>
       <link>https://9320.tech/en/blog/1681665695-ecma/</link>
       <pubDate>Sun, 30 Apr 2023 13:45:06 +0600</pubDate>
