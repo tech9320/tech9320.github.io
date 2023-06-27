@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="sr"><head>
+  <meta charset="utf-8" />
+  <title>Angular Signali</title>
+
+  <!-- mobile responsive meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  
+  <meta name="author" content="Tech9320">
+  
+  <meta name="generator" content="Hugo 0.102.2" />
+
+  <!-- Bootstrap -->
+  
+  <link rel="stylesheet" href="https://9320.tech/css/bootstrap.min.css" />
+  <!-- font-awesome -->
+  <link rel="stylesheet" href="https://9320.tech/font-awesome/css/font-awesome.min.css" />
+  <!-- Main Stylesheets -->
+  
+  <link href="https://9320.tech/scss/style.min.css" rel="stylesheet" />
+  
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QXRDBKKF8K"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-QXRDBKKF8K', { 'anonymize_ip': false });
+}
+</script>
+
+  
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'G-QXRDBKKF8K', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+  
+  <link rel="shortcut icon" href="https://9320.tech/images/favicon.png" type="image/x-icon" />
+  <link rel="icon" href="https://9320.tech/images/favicon.png" type="image/x-icon" />
+</head><body><nav class="navbar navbar-expand-lg site-navigation">
+  <div class="container">
+    <a class="navbar-brand" href="https://9320.tech/" style="width: 300px">
+      <img style="width: 168px; height: 35px; max-width: 168px" src="https://9320.tech/images/logo-horizontal-black.png" alt="logo" />
+    </a>
+    <button
+      class="navbar-toggler collapsed"
+      type="button"
+      data-toggle="collapse"
+      data-target="#sitenavbar"
+    >
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="sitenavbar">
+      <ul class="navbar-nav ml-auto main-nav">
+           
+        <li class="nav-item">
+          <a class="nav-link" href="/sr/">Početna stranica</a>
+        </li>
+          
+        <li class="nav-item">
+          <a class="nav-link" href="/sr/about/">O nama</a>
+        </li>
+          
+        <li class="nav-item">
+          <a class="nav-link" href="/sr/portfolio/">Usluge</a>
+        </li>
+          
+        <li class="nav-item">
+          <a class="nav-link" href="/sr/blog/">Blog</a>
+        </li>
+          
+        <li class="nav-item">
+          <a class="nav-link blink" href="/sr/agro-invest/">AgroInvest</a>
+        </li>
+          
+        <li class="nav-item">
+          <a
+            class="nav-link btn btn-sm btn-primary btn-sm-rounded"
+            href="/sr/contact/"
+          >
+            <span class="btn-area">
+              <span data-text="Kontakt"> Kontakt </span>
+            </span>
+          </a>
+        </li>
+         
+        <li class="nav-item">
+           
+          <a class="nav-link" href="/en/blog/angular-signals/"
+            >ENG</a
+          >
+           
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<main>
+
+<section class="site-blog details">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-12">
+        <article class="site-blog-details">
+          <p><span>June 27, 2023</span> by <span>Jovan Mitrović</span></p>
+          <h2 class="blog-title">Angular Signali</h2>
+          <img class="feature-image" src="https://9320.tech/images/blog/signals/Angular_Signals_Logo.png" alt="blog-feature-image">
+          <p>Pozdrav svim ljubiteljima Angular razvojnog okvira, imamo za vas sjajne vesti.
+U najnovijoj verziji Angulara, verziji 16, imamo priliku da se upoznamo sa novim reaktivnim modelom u Angular-u, <strong>Signalima</strong>.
+Za one koje ne znaju, Angular je razvojni okvir za kreiranje mobilnih, desktop ali prvenstveno web aplikacija.
+Razvijen je od strane inženjera u <em>Google-u</em> i predstavlja jedan od najpopularnijih front-end okruženja današnjice.
+Zbog svoje kompleksnosti često predstavlja problem ljudima koji tek kreću da ga uče.
+Angular tim je odlučio da svim developerima, onima koji vec imaju iskustva i onima koji tek počinju,
+olakšaju svakodnevni rad uvodjenjem novog koncepta koji se naziva <em>Signal</em>.
+Pre nego što krenemo da se bavimo signalima trebalo bi da objasnimo sta je <em>Zone.js</em> i <em>mehanizam za detekciju promena</em>.</p>
+<p><img src="../../../images/blog/signals/spongebob-signals.jpg" alt="SpongeBobSignals"></p>
+<hr>
+<h4 id="zonejs"><strong>Zone.js</strong></h4>
+<p>Zašto je do danas Zone.js jedna od ključnih bilblioteka svake Angular aplikacije? Zone.js je biblioteka koja se koristi da Angular-u signalizira kada je potrebno da
+pokrene mehanizam za detekciju promena.
+Prilikom pokretanja Angular aplikacije, Zone.js &ldquo;<strong>monkey patch</strong>&quot;-uje sve native API-jeve (u slucaju web aplikacije, native browser API-jeve).
+Šta uopšte znači termin monkey patching!?
+Monkey patching je termin koji označava dinamičko modifikovanje koda u toku rada aplikacije. I dalje zvuči konfuzno?
+Uzećemo <em>setTimeout</em> kao primer native browser API.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">originalSetTimeout</span> <span style="color:#f92672">=</span> window.<span style="color:#a6e22e">setTimeout</span>;
+</span></span><span style="display:flex;"><span>window.<span style="color:#a6e22e">setTimeout</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">cb</span>, <span style="color:#a6e22e">delay</span>) =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// Ubacivanje dodatnog koda unutar native API-ja
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;I&#39;m monkey patched&#34;</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">originalSetTimeout</span>(<span style="color:#a6e22e">cb</span>, <span style="color:#a6e22e">delay</span>);
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><p>Šta mislite da će se desiti kada bi pokrenuli funkciju</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">setTimeout</span>(() =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;Hello&#34;</span>);
+</span></span><span style="display:flex;"><span>}, <span style="color:#ae81ff">1000</span>);
+</span></span></code></pre></div><p>Ako je vaš odgovor da će u konzoli pojaviti tekst &ldquo;<em>I&rsquo;m monkey patched</em>&rdquo; i nakon jedne sekunde tekst &ldquo;<em>Hello</em>&rdquo; u pravu ste.
+Promenili smo svojstvo native API-ja tako što smo originalni API sačuvali u promenjivoj <em>originalSetTimeout</em>, nakon čega smo redeklarisali taj isti API tako što
+smo mu dodelili vrednost starog i dodali novu liniju koda (linija 4). Kao što možete da vidite svako od nas može da menja API-jeve po svojoj volji, zar to nije super!
+Zone.js biblioteka radi isto to, samo što su dodatne funckionalnosti koje dodaje vezane za mehanizam za detekciju promena unutar Angular okruženja.</p>
+<h4 id="mehanizam-za-detekciju-promena"><strong>Mehanizam za detekciju promena</strong></h4>
+<p>Kao što možete pretpostaviti po nazivu, mehanizam za detekciju promena je zadužen za proveru promena unutar aplikacije. Kada kažemo promene mislimo na bilo kakvu interakciju
+korisnika ili nekog drugog servisa sa našom aplikacijom (klik korisnika na neki element ili asinhroni odgovor servera sa podacima). Da bi smo bolje razumeli kako
+mehanizam za detekciju promena funkcioniše moramo da shvatimo osnovnu arhitekturu svake Angular aplikacije.</p>
+<h4 id="komponenta"><strong>Komponenta</strong></h4>
+<p>Najosnovniji element u Angular ekosistemu je <em>komponenata</em>.
+Komponenta je UI gradivni blok čija svojstva mogu biti različita u zavisnosti od aplikacije koja se pravi.
+Na primer web sajt se sastoji iz odredjenih delova: zaglavlje (<em>header</em>), podnožija stranice (<em>footer</em>), polja za unos teksta (<em>search input</em>).
+Svaka od ovih stavki može predstavljati komponentu za sebe, možemo imati komponentu &ldquo;<em>searchComponent</em>&rdquo; koja se sastoji iz input polja i logike za pretraživanje
+odredjenih sadržaja. Ovo omogućava komponentama da se korise na više od jednog mesta na samom web sajtu, što nam daje mogućnost da sa većom brzinom i sa boljom kontrolom
+razvijamo naš web sajt (i naravno da naš kod bude čistiji i lakše održiv).</p>
+<p><img src="../../../images/blog/signals/angular-component-structure-1.jpg" alt="ComponentTree"></p>
+<p>Na slici možete primetiti odnos komponenata koji se može prikazati kao stablo.
+U srži svake Angular aplikacije se nalazi
+root komponenta (ili <em>App Component</em> u pravim aplikacijama). Ona u sebi sadrži sve ostale komponente koje smo mi prilikom razvoja napravili (neka vrsta omotača).
+Prilikom pokretanja bilo koje Angular aplikacije root komponenta (<em>App Component</em>) će biti polazna tacka, tj root komponenta je jedina komponenta koja se bootstrapuje
+pri inicijalnom pokretanju.</p>
+<h4 id="kako-funkcioniše-mehanizam-za-detekciju-promena"><strong>Kako funkcioniše mehanizam za detekciju promena</strong></h4>
+<p>Kada dodje do neke akcije na stranici (klik miša na stranici npr),
+Angular prolazi kroz celo stablo komponenti i tom prilikom proverava da li je doslo do promene vrednosti
+delova stanja aplikacije koji se prikazuju na template-u, kako bi uskladio prikazane vrednosti sa trenutnim stanjem u aplikaciji.
+Možete pretpostaviti da ovo definitivno utiče na performanse svake Angular aplikacije (zamislite sliku
+iznad sa stablom od 100 komponenata), ali sa druge strane postoje optimizacije koje mi kao developeri možemo da primenimo.
+Jedna od tih optimizacija je <em>OnPush Change Detection</em> strategija kojom se nećemo baviti u ovom blogu, ali ono što možemo da kažemo jeste da se detekcija promena izvršava efikasnije koristeći tu metodu
+(Angular neće prolaziti kroz celo stablo da bi proverio gde se promena desila, moći će da &ldquo;filtrira&rdquo; odredjene delove stabla).
+Više o <em>OnPush Change Detection</em> strategiji možete pročitati na ovom blogu: <a href="https://huantao.medium.com/angular-change-detection-onpush-with-examples-5187f8b2d6e6">https://huantao.medium.com/angular-change-detection-onpush-with-examples-5187f8b2d6e6</a>.</p>
+<h4 id="signali"><strong>Signali</strong></h4>
+<p>Dolazimo do &ldquo;<strong>mesa</strong>&rdquo; našeg bloga. Signali predstavljaju novu primitivu u Angularu
+(<em>SolidJS</em> je prvi frejmvork koji ih je popularizovao, iako se kao koncept koristio u <em>Knockout.js</em>-u).
+možete ih zamisliti kao omotač oko primitivne vrednosti.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">signal</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;@angular/core&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">age</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">signal</span>(<span style="color:#ae81ff">25</span>);
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">people</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">signal</span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">string</span>[]<span style="color:#f92672">&gt;</span>([]);
+</span></span></code></pre></div><p>Signale kreiramo korišćenjem signal funkcije iz <strong>@angular/core</strong> paketa, inicijalizujemo ih pozivanjem signal konstruktor funkcije.
+U ovom primeru možemo da primetimo da signal mora da ima početnu vrednost (slično kao <em>BehaviorSubject</em> u rxjs-u). Na koji nacin možete da koristite signale?
+U sledećem kodu možete videti neke od funkcionalnosti.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">age</span>()); <span style="color:#75715e">// Prikazi vrednost signala
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">age</span>.<span style="color:#a6e22e">set</span>(<span style="color:#ae81ff">10</span>); <span style="color:#75715e">// Promena inicijalne vrednost signala
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">age</span>.<span style="color:#a6e22e">update</span>((<span style="color:#a6e22e">currentAge</span>) =&gt; <span style="color:#a6e22e">currentAge</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>); <span style="color:#75715e">// Ažurira vrednost signala koristeci prošlu vrednost kao prvi argument
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">people</span>.<span style="color:#a6e22e">mutate</span>((<span style="color:#a6e22e">peopleList</span>) =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">peopleList</span>.<span style="color:#a6e22e">push</span>(<span style="color:#e6db74">&#34;Marko&#34;</span>); <span style="color:#75715e">// Slično kao update, samo što možemo promeniti vrednost na mutabilan način
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>});
+</span></span></code></pre></div><p>Primećujete da kada želimo da pristupimo vrednosti signala, taj signal moramo pozvati kao funkciju bez parametara (<em>getter</em> funkciju).
+Ovo izgleda super, ali za sada sve ovo dosta podseća na <em>Map</em> objekat u Javascriptu.
+Sada ćemo predstaviti jednu dodatnu fukncionalnost signala koja će sve to promeniti.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">div</span>&gt;{{ age() }}&lt;/<span style="color:#f92672">div</span>&gt;
+</span></span></code></pre></div><p>Signale možemo direktno da koristimo u našem template-u, i prilikom svake promene signala on će obavestiti sve korisnike tog signala da mu se vrednost promenila.
+Ovo vas možda podseća na observable pattern, samo što postoji par razlika (signali i jesu, kao i rxjs primitive, reaktivni).</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">div</span>&gt;{{ age | async }}&lt;/<span style="color:#f92672">div</span>&gt;
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">age</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">BehaviorSubject</span>(<span style="color:#ae81ff">25</span>);
+</span></span></code></pre></div><p>Prva jeste da ne moramo nigde da se subscribujemo na signal (samo ga pozivamo na template-u, izbegavajući mogućnost potencijalnog memory leak-a), druga, i mnogo bitnija, jeste da vam za ovo uopšte nije potrebna Zone.js biblioteka!!!
+Primećujete takodje da rxjs može biti zamenjen sa signalima (o ovome će biti malo više reći kasnije u tekstu).
+Napomenuli smo iznad da signali mogu imati korisnike, šta to znači?
+Signale delimo na:</p>
+<ul>
+<li>one u koje možemo upisivati vrednost (<strong>WritableSignals</strong>).</li>
+<li>one koji su izvedeni iz drugih signala (<strong>readonly</strong>)</li>
+</ul>
+<p>Writable signale možemo još i nazvati proizvodjačima, jer oni proizvode neku novu vrednost (vidite primer age signala iznad). Readonly signali direktno zavise od drugog signala
+(i njihova vrednost može samo da se čita, nije je moguce promeniti sa nekom od funkcija). Kako bi bilo jasnije šta su izvedeni signali, prikazaćemo primer jednog od njih</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">olderBrotherAge</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">computed</span>(() =&gt; <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">age</span>() <span style="color:#f92672">+</span> <span style="color:#ae81ff">4</span>);
+</span></span></code></pre></div><p>Da bismo napravili readonly signal koristimo <em>computed</em> funkciju, u koju prosledjujemo signal čije promene želimo da pratimo. Razlika izmedju computed (ili readonly) signala
+u poredjenju sa generičkim (ili Writable) signalom jeste u tome da se poslednja vrednost computed signala kešira,
+tako da ukoliko nije došlo do promene vrednosti signala koji se koristi unutar callback funkcije izvedenog (computed) signala, callback se nece ponovo izvršiti.</p>
+<p>Još jedna funkcija koju ćemo napomenuti je efekat.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">effect</span>(() =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;Brothers age changed to: &#34;</span>, <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">olderBrotherAge</span>());
+</span></span><span style="display:flex;"><span>});
+</span></span></code></pre></div><p><em>Efekat</em> funkcija zakazuje i pokreće sporedne efekte u reaktivnom kontekstu.
+Callback funkcija efekta se ponovo izvršava (<em>re-execute</em>) kada dodje do promene bilo kog signala koji se koriste unutar njega (primer iznad, ako bi došlo do promene
+<em>olderBrotherAge</em> signala, <em>console log</em> bi se ponovo izvršio).
+Kako uopšte svi ovi signali i sporedni efekti komuniciraju jedni sa drugima?</p>
+<h4 id="pushpull"><strong>Push/Pull</strong></h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">div</span>&gt;{{age()}}&lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">div</span>&gt;{{olderBrotherAge()}}&lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">button</span> <span style="color:#960050;background-color:#1e0010">(</span><span style="color:#a6e22e">click</span><span style="color:#960050;background-color:#1e0010">)=&#34;</span><span style="color:#a6e22e">increase</span><span style="color:#960050;background-color:#1e0010">()&#34;</span>&gt;Povećaj godine&lt;/<span style="color:#f92672">button</span>&gt;
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span>    <span style="color:#a6e22e">age</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">signal</span>(<span style="color:#ae81ff">8</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">olderBrotherAge</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">computed</span>(() =&gt; <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">age</span>() <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">40</span> <span style="color:#f92672">?</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">age</span>() <span style="color:#f92672">+</span> <span style="color:#ae81ff">4</span> <span style="color:#f92672">:</span> <span style="color:#ae81ff">44</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">constructor</span>() {
+</span></span><span style="display:flex;"><span>     <span style="color:#a6e22e">effect</span>(() =&gt; {
+</span></span><span style="display:flex;"><span>       <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">olderBrotherAge</span>() <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">18</span> <span style="color:#f92672">?</span> <span style="color:#e6db74">`Brother is an adult and he is: </span><span style="color:#e6db74">${</span><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">olderBrotherAg</span>()<span style="color:#e6db74">}</span><span style="color:#e6db74"> years old`</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Brother is not an adult yet&#39;</span>);
+</span></span><span style="display:flex;"><span>     })
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">increase</span>() {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">age</span>.<span style="color:#a6e22e">update</span>((<span style="color:#a6e22e">previousAge</span>) =&gt; <span style="color:#a6e22e">previousAge</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></div><p>Napisali smo jedan primer mini aplikacije u kojoj imamo dugme preko koga možemo da povećamo godine sebi. Naš brat je stariji od nas 4 godine tako da će njegove godine uvek biti naše godine plus 4 (linija 2).
+Nakon što mi napunimo 40 godina neko iz ministarstva unutrašnjih poslova slučajno briše sve informacije o našem bratu iz baze podataka, tako da po poslednjim informacijama znamo da on ima 44 godine.
+Imamo jedan efekat koji osluškuje da li je naš brat punoletan (linija 5). Šta se dešava kada kliknemo na dugme &ldquo;Povećaj godine&rdquo; (ignorisaćemo početno stanje za sad, s obzirom da se isto dešava prilikom inicijalnog pokretanja).</p>
+<h5 id="1-promena-našeg-writable-signala-u-ovom-primeru-_age_-signal-pokreće-pushpull-algoritam">1. Promena našeg Writable signala (u ovom primeru <em>age</em> signal) pokreće Push/Pull algoritam</h5>
+<h5 id="2-naš-proizvodjač-_age_-push-uje-svoju-prljavštinu-flag-koji-označava-da-se-vrednost-promenila-obaveštavajući-sve-njegove-korisnike-u-ovom-slučaju-_olderbrotherage_-da-je-njegova-vrednost-stara-i-da-bi-trebalo-da-se-promeni">2. Naš proizvodjač <em>age</em> push-uje svoju &ldquo;prljavštinu&rdquo; (flag koji označava da se vrednost promenila), obaveštavajući sve njegove korisnike, u ovom slučaju <em>olderBrotherAge</em> da je njegova vrednost stara i da bi trebalo da se promeni</h5>
+<h5 id="3-_olderbrotherage_-isto-ima-svoje-korisnike-tako-da-ih-i-on-obaveštava-da-im-je-vrednost-stara-_consolelog-u-efektu_-linija-6">3. <em>olderBrotherAge</em> isto ima svoje korisnike, tako da ih i on obaveštava da im je vrednost stara (<em>console.log u efektu</em>, linija 6)</h5>
+<h5 id="4-_efekat_-consolelog-zatražuju-najnoviju-vrednost-od-olderbrotherage-signala-_olderbrotherage_-ponovo-zatražuje-najnoviju-vrednost-od-_age_-signala-_age_-signal-je-ažurirao-svoju-vrednost-i-svoju-verziju-vrednosti-objasnićemo-šta-je-ovo-u-nastavku-i-obaveštava-_olderbrotherage_-signal-o-novom-stanju">4. <em>efekat</em> (console.log), zatražuju najnoviju vrednost od olderBrotherAge signala. <em>olderBrotherAge</em> ponovo zatražuje najnoviju vrednost od <em>age</em> signala. <em>Age</em> signal je ažurirao svoju vrednost i svoju verziju vrednosti (objasnićemo šta je ovo u nastavku) i obaveštava <em>olderBrotherAge</em> signal o novom stanju</h5>
+<h5 id="5-_olderbrotherage_-rekalkuliše-svoju-vrednost-primećuje-da-mu-se-vrednost-promenila-i-menja-svoju-verziju-vrednosti">5. <em>olderBrotherAge</em> rekalkuliše svoju vrednost, primećuje da mu se vrednost promenila i menja svoju verziju vrednosti</h5>
+<h5 id="6-_efekat_-shvata-da-je-verzija-vrednosti-signala-koji-se-koristi-u-njemu-promenjena-povlači-novu-vrednost-i-prikazuje-_brother-is-not-an-adult-yet_-u-konzoli">6. <em>Efekat</em> shvata da je verzija vrednosti signala koji se koristi u njemu promenjena, povlači novu vrednost i prikazuje &lsquo;<em>Brother is not an adult yet</em>&rsquo; u konzoli</h5>
+<p>Kakav je ovo novi termin, &ldquo;<em>verzija vrednosti</em>&rdquo;. U suštini svaki signal u sebi sadrži numeričku verziju vrednosti koju povećava u zavisnosti da li se njegova &ldquo;prava&rdquo; vrednost promenila.
+Ovo predstavlja <strong>semantički identitet</strong> te vrednosti. Nadovezaćemo se na prethodni primer kako bi bolje objasnili. Šta će se desiti kada napunimo 41 godinu?</p>
+<p>Kako ne bi ponavljali sve korake rećićemo samo šta se dešava pri kraju push/pull algoritma.</p>
+<h5 id="5-_olderbrotherage_-opet-rekalkuliše-svoju-vrednost-s-obzirom-da-se-_age_-signal-promenio-ali-sada-njegova-vrednost-ostaje-konstantna-44-u-ovom-slučaju-taj-signal-neće-promeniti-svoju-verziju-vrednosti">5. <em>olderBrotherAge</em> opet rekalkuliše svoju vrednost (s obzirom da se <em>age</em> signal promenio), ali sada njegova vrednost ostaje konstantna, 44. U ovom slučaju taj signal NEĆE promeniti svoju verziju vrednosti</h5>
+<h5 id="6-na-kraju-_efekat_-dobija-informaciju-da-se-verzija-vrednosti-njegovog-prozivodjača-nije-promenila-i-nema-potrebe-da-se-izvrši">6. Na kraju <em>efekat</em> dobija informaciju da se verzija vrednosti njegovog prozivodjača nije promenila i nema potrebe da se izvrši</h5>
+<p>S obzirom na ovakav nacin funkcionisanja signala (na praćenje zavisnost izmedju <em>witable</em>, <em>readonly</em> i <em>efekata</em>), nema potrebe da se brinete da će ikada doći do <em>memory leak</em>-a.</p>
+<h4 id="zaključak"><strong>Zaključak</strong></h4>
+<p>Nakon svega ovoga, možemo izvesti sledeće benefite signala:</p>
+<h5 id="--_zonejs_-biblioteka-više-nije-neophodna-što-će-smanjiti-bundle-size-i-učiniti-aplikaciju-dosta-efikasnijom-više-nema-potrebe-za-prolaženje-kroz-stablo-komponenata-detekcija-promena-se-vrši-lokalno-jedna-napomena-oko-ovoga-jeste-da-će-ovo-biti-moguće-tek-od-_verzije-17-angulara_-za-sada-detekcija-promena-funkcioniše-i-dalje-na-globalnom-nivou">- <em>Zone.js</em> biblioteka više nije neophodna, što će smanjiti bundle size i učiniti aplikaciju dosta efikasnijom (više nema potrebe za prolaženje kroz stablo komponenata, detekcija promena se vrši lokalno). Jedna napomena oko ovoga jeste da će ovo biti moguće tek od <em>verzije 17 Angulara</em> (za sada detekcija promena funkcioniše i dalje na globalnom nivou).</h5>
+<h5 id="--_rxjs_-će-biti-manje-korišćen-ovo-može-biti-i-mana-za-one-koji-imaju-dosta-iskustva-radeći-sa-tom-biblikotekom-ali-ne-brinite-iako-su-signali-bolji-u-većini-slučajeva-za-bilo-kakve-kompleksnije-asinhrone-dogadjaje-rxjs-i-dalje-pruža-najbolju-podršku-rad-sa-asinhronim-podacima-sa-servera-ili-kompleksnijim-_eventemitterim_-a">- <em>Rxjs</em> će biti manje korišćen (ovo može biti i mana za one koji imaju dosta iskustva radeći sa tom biblikotekom). Ali ne brinite iako su signali bolji u većini slučajeva, za bilo kakve kompleksnije asinhrone dogadjaje rxjs i dalje pruža najbolju podršku (rad sa asinhronim podacima sa servera ili kompleksnijim <em>eventEmitterim</em>-a).</h5>
+<p><img src="../../../images/blog/signals/Angular_Signals.jpg" alt="RxjsSignals"></p>
+<p>Čekaj malo, zašto bi koristili rxjs uopšte u našim aplikacijma, rekli smo da želimo da izbacimo Zone.js iz upotrebe, ali za prikazivanje observabli potreban nam je <em>async pipe</em>
+(možemo i deklarisati promenjivu kojoj bi prosledili vrednost <em>observable</em>-a prilikom subscripcije, ali opet nam je potreban Zone.js da bi pratili promene tog <em>observable</em>-a)?
+Angular tim će u budućim verzijama uvesti funkcije za automatsku konverziju observabli u signale i obrnuto (<em>toObservable()</em> i <em>toSignal()</em> ovo je samo pretpostavka kako bi izgledale).</p>
+<p>Sta će se desi sa bibliotekama za upravljanje stanjem u aplikaciji, koji kao svoju bazu koriste rxjs (mislimo na <strong>Ngrx</strong>)?
+Ngrx tim takodje otvoreno prihvata sve promene koje signali donose uvodeći novi način upravljanja stanjem sa <em>signalStore</em>-om (integracija je već prisutna u verziji 16 Angulara
+sa <em>selectSignal</em> metodom, koja za razliku od klasične <em>select</em> metode, za svoju povratnu vrednost ima <em>Signal</em> umesto <em>Observable</em>-a).
+<em>RFC signalStore-a možete videti na ovom linku: <a href="https://github.com/ngrx/platform/discussions/3796">https://github.com/ngrx/platform/discussions/3796</a></em>.</p>
+<p>Ako budete imali još neka pitanja slobodno ih možete postaviti <strong>tech9320</strong> timu direktno 😀</p>
+<hr>
+<p>Pa ljubitelji Angulara, signali će definitvno promeniti ceo koncept rada u Angular okruženju.
+Ovo deluje malo zastrašujuće, ali u isto vreme jako ohrabrujuće zato što ćemo u budućnosti videti kako se naše voljeno okruženje koristi u sve većem broju aplikacija.
+Ako želite više informacija o signalima možete pogledati sledeće linkove:</p>
+<ul>
+<li>Sjajan blog o signalima: <a href="https://dev.to/this-is-angular/angular-signals-everything-you-need-to-know-2b7g">https://dev.to/this-is-angular/angular-signals-everything-you-need-to-know-2b7g</a></li>
+<li>Signal playground: <a href="https://stackblitz.com/edit/angular-signals-deborahk?file=src%2Fmain.ts">https://stackblitz.com/edit/angular-signals-deborahk?file=src%2Fmain.ts</a></li>
+<li>Kratak video o signalima: <a href="https://www.youtube.com/watch?v=4FkFmn0LmLI&amp;ab_channel=JoshuaMorony">https://www.youtube.com/watch?v=4FkFmn0LmLI&amp;ab_channel=JoshuaMorony</a></li>
+</ul>
+
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+        </main><footer class="site-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="site-footer-logo"><a href="https://9320.tech/"><img style="width: 168px; height: 35.5px;" src="https://9320.tech/images/logo-horizontal-white.png" alt="logo-footer"></a></div>
+      </div>
+      
+      <div class="col-lg-3 col-md-6">
+        <div class="site-footer-widget">
+          <h5 class="site-footer-widget-title">Kontakt informacije</h5>
+          <p class="site-footer-widget-description">
+            11000 Beograd, Srbija
+            
+            <br>
+            <a href="mailto:office@9320.tech">office@9320.tech</a>
+          </p>
+        </div>
+      </div>
+      
+      
+      <div class="col-lg-2 col-md-6">
+        <div class="site-footer-widget">
+          <h5 class="site-footer-widget-title">Mapa sajta</h5>
+          <ul class="site-footer-widget-links">
+            
+            <li><a href="https://9320.tech/sr/about">O nama</a></li>
+            
+            <li><a href="https://9320.tech/sr/portfolio">Usluge</a></li>
+            
+            <li><a href="https://9320.tech/sr/blog">Blog</a></li>
+            
+            <li><a href="https://9320.tech/sr/agro-invest">AgroInvest</a></li>
+            
+            <li><a href="https://9320.tech/sr/contact">Kontakt</a></li>
+            
+          </ul>
+        </div>
+      </div>
+      
+      
+      <div class="col-lg-2 col-md-6">
+        <div class="site-footer-widget">
+          <h5 class="site-footer-widget-title">Pratite naš rad!</h5>
+          <ul class="site-footer-widget-links">
+            
+              <li><a target="_blank" href="https://github.com/tech9320">GitHub</a></li>
+            
+          </ul>
+        </div>
+      </div>
+      
+      
+      <div class="col-lg-3 col-md-6">
+        <div class="site-footer-widget">
+          <h5 class="site-footer-widget-title">Tu smo da vam pomognemo</h5>
+          <p class="site-footer-widget-description">
+            Sajt? Može!<br>Aplikacija? Može!<br>Visok kvalitet zagarantovan!
+          </p>
+        </div>
+      </div>
+      
+      <div class="col-lg-2 col-12">
+        <a href="#top" class="site-footer-widget-top">
+          <img src="https://9320.tech/images/to-top.svg" alt="back-to-top">
+          <p>
+            Vratite se na
+            <br>
+            početak sajta
+          </p>
+        </a>
+      </div>
+      <div class="col-12">
+        <div class="site-footer-copyright">
+          <p>© Copyright 2023 - HUGO theme by <a href="https://staticmania.com/" target="_blank">StaticMania</a>. Website by the Tech9320 team </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+<script src="https://9320.tech/js/vendor.min.js"></script>
+
+<script src="https://9320.tech/js/script.min.js"></script></body>
+</html>

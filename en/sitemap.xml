@@ -2,6 +2,32 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://9320.tech/en/blog/angular-signals/</loc>
+    <lastmod>2023-06-27T16:00:06+06:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="sr"
+                href="https://9320.tech/sr/blog/angular-signals/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://9320.tech/en/blog/angular-signals/"
+                />
+  </url><url>
+    <loc>https://9320.tech/en/</loc>
+    <lastmod>2023-06-27T16:00:06+06:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="sr"
+                href="https://9320.tech/sr/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://9320.tech/en/"
+                />
+  </url><url>
     <loc>https://9320.tech/en/blog/nodejs-versions/</loc>
     <lastmod>2023-05-11T16:45:06+06:00</lastmod>
     <xhtml:link
@@ -13,19 +39,6 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://9320.tech/en/blog/nodejs-versions/"
-                />
-  </url><url>
-    <loc>https://9320.tech/en/</loc>
-    <lastmod>2023-05-11T16:45:06+06:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="sr"
-                href="https://9320.tech/sr/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://9320.tech/en/"
                 />
   </url><url>
     <loc>https://9320.tech/en/agro-invest/</loc>

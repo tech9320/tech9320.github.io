@@ -8,6 +8,15 @@
     <language>sr</language>
     <lastBuildDate>Mon, 23 Dec 2019 20:17:01 +0600</lastBuildDate><atom:link href="https://9320.tech/sr/blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Angular Signali</title>
+      <link>https://9320.tech/sr/blog/angular-signals/</link>
+      <pubDate>Tue, 27 Jun 2023 16:00:06 +0600</pubDate>
+      
+      <guid>https://9320.tech/sr/blog/angular-signals/</guid>
+      <description>Pozdrav svim ljubiteljima Angular razvojnog okvira, imamo za vas sjajne vesti.</description>
+    </item>
+    
+    <item>
       <title>Node.js - najnovije verzije i feature-i</title>
       <link>https://9320.tech/sr/blog/nodejs-versions/</link>
       <pubDate>Thu, 11 May 2023 16:45:06 +0600</pubDate>
