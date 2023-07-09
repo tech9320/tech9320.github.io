@@ -8,6 +8,15 @@
     <language>sr</language>
     <lastBuildDate>Mon, 23 Dec 2019 20:17:01 +0600</lastBuildDate><atom:link href="https://9320.tech/en/blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Farewell to Passwords, Welcome Passkeys</title>
+      <link>https://9320.tech/en/blog/passkeys/</link>
+      <pubDate>Wed, 28 Jun 2023 16:45:06 +0600</pubDate>
+      
+      <guid>https://9320.tech/en/blog/passkeys/</guid>
+      <description>New, more secure and much convenient method of authentication is in expansion and threatens to replace passwords as method of authentication we are all used to.</description>
+    </item>
+    
+    <item>
       <title>Angular Signals</title>
       <link>https://9320.tech/en/blog/angular-signals/</link>
       <pubDate>Tue, 27 Jun 2023 16:00:06 +0600</pubDate>

@@ -6,7 +6,16 @@
     <description>Recent content on Tech9320 | Ideja -&gt; Realizacija</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>sr</language>
-    <lastBuildDate>Tue, 27 Jun 2023 16:00:06 +0600</lastBuildDate><atom:link href="https://9320.tech/sr/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 28 Jun 2023 16:45:06 +0600</lastBuildDate><atom:link href="https://9320.tech/sr/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Zbogom šiframa, upoznajte passkey-eve</title>
+      <link>https://9320.tech/sr/blog/passkeys/</link>
+      <pubDate>Wed, 28 Jun 2023 16:45:06 +0600</pubDate>
+      
+      <guid>https://9320.tech/sr/blog/passkeys/</guid>
+      <description>Novi, sigurniji a ujedno i jednostavniji metod autentifikacije je u ekspanziji i preti da zameni šifre kao metod autentifikacije na koji smo svi do sada navikli.</description>
+    </item>
+    
     <item>
       <title>Angular Signali</title>
       <link>https://9320.tech/sr/blog/angular-signals/</link>
