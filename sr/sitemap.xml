@@ -2,6 +2,32 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://9320.tech/sr/blog/susan-kare/</loc>
+    <lastmod>2023-08-04T09:45:06+06:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://9320.tech/en/blog/susan-kare/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="sr"
+                href="https://9320.tech/sr/blog/susan-kare/"
+                />
+  </url><url>
+    <loc>https://9320.tech/sr/</loc>
+    <lastmod>2023-08-04T09:45:06+06:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://9320.tech/en/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="sr"
+                href="https://9320.tech/sr/"
+                />
+  </url><url>
     <loc>https://9320.tech/sr/blog/elementals/</loc>
     <lastmod>2023-07-12T09:45:06+06:00</lastmod>
     <xhtml:link
@@ -13,19 +39,6 @@
                 rel="alternate"
                 hreflang="sr"
                 href="https://9320.tech/sr/blog/elementals/"
-                />
-  </url><url>
-    <loc>https://9320.tech/sr/</loc>
-    <lastmod>2023-07-12T09:45:06+06:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://9320.tech/en/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="sr"
-                href="https://9320.tech/sr/"
                 />
   </url><url>
     <loc>https://9320.tech/sr/blog/passkeys/</loc>
