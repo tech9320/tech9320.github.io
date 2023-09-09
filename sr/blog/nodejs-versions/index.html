@@ -9,7 +9,7 @@
   
   <meta name="author" content="Tech9320">
   
-  <meta name="generator" content="Hugo 0.102.2" />
+  <meta name="generator" content="Hugo 0.92.2" />
 
   <!-- Bootstrap -->
   
@@ -127,106 +127,106 @@ if (!doNotTrack) {
 <h5 id="v8-version-90">V8 version 9.0</h5>
 <p>Node.js verzija 16 uključuje najnoviju verziju V8 (verzija 9.0), koja donosi nekoliko poboljšanja performansi i novih jezičkih funkcija kao što su opciono ulančavanje (optional chaining) i nulto spajanje (nullish coalescing).</p>
 <p><em>Primer pre uvođenja Node.js 16:</em></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span>    <span style="color:#75715e">// Bez korišćenja optional chaining operatora
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">user</span> <span style="color:#f92672">=</span> {
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Example Name&#39;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">address</span><span style="color:#f92672">:</span> {
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">city</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Belgrade&#39;</span>,
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">state</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Serbia&#39;</span>
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    };
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">state</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">user</span>.<span style="color:#a6e22e">address</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">user</span>.<span style="color:#a6e22e">address</span>.<span style="color:#a6e22e">state</span>;
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">state</span>); <span style="color:#75715e">// Izlaz: &#34;Serbia&#34;
-</span></span></span></code></pre></div><p><em>Nakon uvođenja Node.js 16:</em></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span>    <span style="color:#75715e">// Korišćenjem optional chaining operatora
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">user</span> <span style="color:#f92672">=</span> {
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Example Name&#39;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">address</span><span style="color:#f92672">:</span> {
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">city</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Belgrade&#39;</span>,
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">state</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Serbia&#39;</span>
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    };
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">state</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">user</span>.<span style="color:#a6e22e">address</span><span style="color:#f92672">?</span>.<span style="color:#a6e22e">state</span>;
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">state</span>); <span style="color:#75715e">// Izlaz: &#34;Serbia&#34;
-</span></span></span></code></pre></div><p>Drugi primer je predstavljen korišćenjem funkcije stepenovanja.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span>    <span style="color:#75715e">// Pre Node.js 16:
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">result</span> <span style="color:#f92672">=</span> Math.<span style="color:#a6e22e">pow</span>(<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">2</span>); <span style="color:#75715e">// 9
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Korišćenjem Node.js 16, operator &#39;**&#39; se može direktno koristiti:*
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">result</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span> <span style="color:#f92672">**</span> <span style="color:#ae81ff">2</span>; <span style="color:#75715e">// 9
-</span></span></span></code></pre></div><h5 id="web-crypto-api">Web Crypto API</h5>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">    <span style="color:#75715e">// Bez korišćenja optional chaining operatora
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">user</span> <span style="color:#f92672">=</span> {
+    <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Example Name&#39;</span>,
+    <span style="color:#a6e22e">address</span><span style="color:#f92672">:</span> {
+        <span style="color:#a6e22e">city</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Belgrade&#39;</span>,
+        <span style="color:#a6e22e">state</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Serbia&#39;</span>
+    }
+    };
+
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">state</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">user</span>.<span style="color:#a6e22e">address</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">user</span>.<span style="color:#a6e22e">address</span>.<span style="color:#a6e22e">state</span>;
+    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">state</span>); <span style="color:#75715e">// Izlaz: &#34;Serbia&#34;
+</span></code></pre></div><p><em>Nakon uvođenja Node.js 16:</em></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">    <span style="color:#75715e">// Korišćenjem optional chaining operatora
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">user</span> <span style="color:#f92672">=</span> {
+    <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Example Name&#39;</span>,
+    <span style="color:#a6e22e">address</span><span style="color:#f92672">:</span> {
+        <span style="color:#a6e22e">city</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Belgrade&#39;</span>,
+        <span style="color:#a6e22e">state</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Serbia&#39;</span>
+    }
+    };
+
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">state</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">user</span>.<span style="color:#a6e22e">address</span><span style="color:#f92672">?</span>.<span style="color:#a6e22e">state</span>;
+    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">state</span>); <span style="color:#75715e">// Izlaz: &#34;Serbia&#34;
+</span></code></pre></div><p>Drugi primer je predstavljen korišćenjem funkcije stepenovanja.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">    <span style="color:#75715e">// Pre Node.js 16:
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">result</span> <span style="color:#f92672">=</span> Math.<span style="color:#a6e22e">pow</span>(<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">2</span>); <span style="color:#75715e">// 9
+</span><span style="color:#75715e"></span>
+    <span style="color:#75715e">// Korišćenjem Node.js 16, operator &#39;**&#39; se može direktno koristiti:*
+</span><span style="color:#75715e"></span>
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">result</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span> <span style="color:#f92672">**</span> <span style="color:#ae81ff">2</span>; <span style="color:#75715e">// 9
+</span></code></pre></div><h5 id="web-crypto-api">Web Crypto API</h5>
 <p><em>Pre Node.js 16</em>, ako ste želeli da obavljate kriptografske operacije, morali ste da koristite biblioteke (third-party) kao što su OpenSSL ili CriptoJS. Na primer, ako želite da kriptujete poruku pomoću AES enkripcije, morali biste da koristite biblioteku kao što je CriptoJS:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span>    <span style="color:#75715e">// Bez ugrađene podrške za kriptografske operacije
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">crypto</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;crypto&#39;</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">generateKey</span>() {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">key</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">crypto</span>.<span style="color:#a6e22e">randomBytes</span>(<span style="color:#ae81ff">32</span>).<span style="color:#a6e22e">toString</span>(<span style="color:#e6db74">&#39;hex&#39;</span>);
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">key</span>);
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">generateKey</span>();
-</span></span></code></pre></div><p><em>Sa Node.js 16</em>, možete direktno da koristite Veb Cripto API:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span>    <span style="color:#75715e">// Sa podrškom kriptografskih operacija
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">crypto</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;crypto&#39;</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">async</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">generateKey</span>() {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">algorithm</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;AES-GCM&#39;</span>;
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">length</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">256</span>;
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">key</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">crypto</span>.<span style="color:#a6e22e">generateKey</span>(<span style="color:#a6e22e">algorithm</span>, {
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">length</span>,
-</span></span><span style="display:flex;"><span>    });
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">key</span>);
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">generateKey</span>();
-</span></span></code></pre></div><hr>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">    <span style="color:#75715e">// Bez ugrađene podrške za kriptografske operacije
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">crypto</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;crypto&#39;</span>);
+
+    <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">generateKey</span>() {
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">key</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">crypto</span>.<span style="color:#a6e22e">randomBytes</span>(<span style="color:#ae81ff">32</span>).<span style="color:#a6e22e">toString</span>(<span style="color:#e6db74">&#39;hex&#39;</span>);
+    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">key</span>);
+    }
+
+    <span style="color:#a6e22e">generateKey</span>();
+</code></pre></div><p><em>Sa Node.js 16</em>, možete direktno da koristite Veb Cripto API:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">    <span style="color:#75715e">// Sa podrškom kriptografskih operacija
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">crypto</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;crypto&#39;</span>);
+
+    <span style="color:#66d9ef">async</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">generateKey</span>() {
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">algorithm</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;AES-GCM&#39;</span>;
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">length</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">256</span>;
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">key</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">crypto</span>.<span style="color:#a6e22e">generateKey</span>(<span style="color:#a6e22e">algorithm</span>, {
+        <span style="color:#a6e22e">length</span>,
+    });
+    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">key</span>);
+    }
+
+    <span style="color:#a6e22e">generateKey</span>();
+</code></pre></div><hr>
 <h4 id="nodejs-version-18">Node.js Version 18</h4>
 <p>Node.js verzija 18 objavljena je u aprilu 2022. i dolazi sa nekoliko novih feature-a i poboljšanja. Dva značajna feature-a su:</p>
 <h5 id="async-local-storage">Async local storage</h5>
 <p>Asinhronizovana lokalna memorija je novi API koji omogućava programerima da čuvaju podatke koji su ograničeni na određeni kontekst izvršavanja, kao što je HTTP zahtev. Ovo olakšava deljenje podataka između funkcija koje se pozivaju u istom izvršnom kontekstu.</p>
 <p><em>Pre Node.js 18</em>, ako ste želeli da prenesete podatke između funkcija u lancu asinhronog poziva, morali ste da koristite argumente povratnog poziva (callback arguments) ili globalne promenljive. Na primer, ako želite da prosledite korisnički ID iz jedne asinhrone funkcije u drugu, morali biste da koristite globalnu promenljivu:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">userId</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">processRequest</span>(<span style="color:#a6e22e">request</span>, <span style="color:#a6e22e">callback</span>) {
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">userId</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">getUserIdFromRequest</span>(<span style="color:#a6e22e">request</span>);
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">processRequestData</span>(<span style="color:#a6e22e">request</span>.<span style="color:#a6e22e">data</span>, <span style="color:#a6e22e">callback</span>);
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">processRequestData</span>(<span style="color:#a6e22e">data</span>, <span style="color:#a6e22e">callback</span>) {
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// koiršćenje userId
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#a6e22e">callback</span>();
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">getUserIdFromRequest</span>(<span style="color:#a6e22e">request</span>) {
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">request</span>.<span style="color:#a6e22e">headers</span>[<span style="color:#e6db74">&#39;x-user-id&#39;</span>];
-</span></span><span style="display:flex;"><span>    }
-</span></span></code></pre></div><p><em>Sa Node.js 18</em>, možete koristiti Async Local Storage za prosleđivanje podataka između funkcija:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">AsyncLocalStorage</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;async_hooks&#39;</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">asyncLocalStorage</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">AsyncLocalStorage</span>();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">async</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">processRequest</span>(<span style="color:#a6e22e">request</span>) {
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">asyncLocalStorage</span>.<span style="color:#a6e22e">run</span>(<span style="color:#a6e22e">request</span>, <span style="color:#66d9ef">async</span> () =&gt; {
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">userId</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">getUserIdFromRequest</span>(<span style="color:#a6e22e">request</span>);
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">processRequestData</span>(<span style="color:#a6e22e">request</span>.<span style="color:#a6e22e">data</span>, <span style="color:#a6e22e">userId</span>);
-</span></span><span style="display:flex;"><span>    });
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">async</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">processRequestData</span>(<span style="color:#a6e22e">data</span>, <span style="color:#a6e22e">userId</span>) {
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// koiršćenje podataka i userId
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    }
-</span></span></code></pre></div><h5 id="stable-timers-api">Stable Timers API</h5>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">userId</span>;
+
+    <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">processRequest</span>(<span style="color:#a6e22e">request</span>, <span style="color:#a6e22e">callback</span>) {
+        <span style="color:#a6e22e">userId</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">getUserIdFromRequest</span>(<span style="color:#a6e22e">request</span>);
+        <span style="color:#a6e22e">processRequestData</span>(<span style="color:#a6e22e">request</span>.<span style="color:#a6e22e">data</span>, <span style="color:#a6e22e">callback</span>);
+    }
+
+    <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">processRequestData</span>(<span style="color:#a6e22e">data</span>, <span style="color:#a6e22e">callback</span>) {
+        <span style="color:#75715e">// koiršćenje userId
+</span><span style="color:#75715e"></span>        <span style="color:#a6e22e">callback</span>();
+    }
+
+    <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">getUserIdFromRequest</span>(<span style="color:#a6e22e">request</span>) {
+        <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">request</span>.<span style="color:#a6e22e">headers</span>[<span style="color:#e6db74">&#39;x-user-id&#39;</span>];
+    }
+</code></pre></div><p><em>Sa Node.js 18</em>, možete koristiti Async Local Storage za prosleđivanje podataka između funkcija:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">    <span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">AsyncLocalStorage</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;async_hooks&#39;</span>);
+
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">asyncLocalStorage</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">AsyncLocalStorage</span>();
+
+    <span style="color:#66d9ef">async</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">processRequest</span>(<span style="color:#a6e22e">request</span>) {
+    <span style="color:#a6e22e">asyncLocalStorage</span>.<span style="color:#a6e22e">run</span>(<span style="color:#a6e22e">request</span>, <span style="color:#66d9ef">async</span> () =&gt; {
+        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">userId</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">getUserIdFromRequest</span>(<span style="color:#a6e22e">request</span>);
+        <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">processRequestData</span>(<span style="color:#a6e22e">request</span>.<span style="color:#a6e22e">data</span>, <span style="color:#a6e22e">userId</span>);
+    });
+    }
+
+    <span style="color:#66d9ef">async</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">processRequestData</span>(<span style="color:#a6e22e">data</span>, <span style="color:#a6e22e">userId</span>) {
+        <span style="color:#75715e">// koiršćenje podataka i userId
+</span><span style="color:#75715e"></span>    }
+</code></pre></div><h5 id="stable-timers-api">Stable Timers API</h5>
 <p><em>Pre Node.js 18</em>, ugrađeni tajmeri ​​u Node.js su imali problem sa preciznošću koji je mogao da izazove njihovo pokretanje kasnije nego što se očekivalo. Ovo je bilo posebno problematično za aplikacije koje su se oslanjale na precizno merenje vremena, kao što su audio ili video obrada.<br>
 <em>Sa Node.js 18</em>, uveden je API za stabilne tajmere, koji tajmerima obezbeđuje zagarantovanu tačnost i dosledno ponašanje na različitim platformama. To znači da se možete osloniti na tajmere koji će aktivirati tačno kada očekujete, bez ikakvih varijacija.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">setStableTimeout</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;timers&#39;</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">setStableTimeout</span>(() =&gt; {
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;Timeout fired!&#39;</span>);
-</span></span><span style="display:flex;"><span>    }, <span style="color:#ae81ff">1000</span>);
-</span></span></code></pre></div><p>Ovaj kod će pokrenuti funkciju povratnog poziva tačno 1 sekundu nakon pokretanja tajmera, bez obzira na bilo kakve spoljne faktore koji mogu uticati na tajming, kao što je opterećenje sistema ili pomeranje sata.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">    <span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">setStableTimeout</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;timers&#39;</span>);
+
+    <span style="color:#a6e22e">setStableTimeout</span>(() =&gt; {
+        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;Timeout fired!&#39;</span>);
+    }, <span style="color:#ae81ff">1000</span>);
+</code></pre></div><p>Ovaj kod će pokrenuti funkciju povratnog poziva tačno 1 sekundu nakon pokretanja tajmera, bez obzira na bilo kakve spoljne faktore koji mogu uticati na tajming, kao što je opterećenje sistema ili pomeranje sata.
 Ovo može biti posebno korisno za aplikacije u realnom vremenu koje zahtevaju precizno merenje vremena, kao što su razvoj igara ili multimedijalne aplikacije.</p>
 <p>Nadogradnjom na Node.js 18 i korišćenjem API-ja za stabilne tajmere, možete osigurati da vaše aplikacije rade na najbolji mogući način i da pružaju besprekorno korisničko iskustvo.</p>
 <hr>
@@ -236,32 +236,32 @@ Ovo može biti posebno korisno za aplikacije u realnom vremenu koje zahtevaju pr
 <p>Node.js 20 ima nekoliko poboljšanja performansi koja ga čine bržim i efikasnijim. Ažuriranja uključuju brže vreme pokretanja, bolje upravljanje memorijom i poboljšano oslobađanje memorije (garbage collection).</p>
 <p><em>Pre Node.js 20</em>, ako ste želeli da otklonite i pronađete problem sa performansama ili gašenjem aplikacije, morali ste da koristite spoljne alate kao što su Chrome DevTools ili Node.js Inspector. Ovaj način bi mogao da oduzme mnogo vremena i zahteva postavku ovih alata koja je često komplikovana.</p>
 <p><em>Sa Node.js 20</em>, možete da koristite novi feature dijagnostičkih izveštaja da biste automatski generisali dijagnostičke izveštaje koji sadrže informacije o performansama vaše aplikacije, upotrebi memorije i drugim pokazateljima. Na primer, ovako bi izgledalo generisanje izveštaja:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">generateReport</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;diagnostic_channel&#39;</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">generateReport</span>(<span style="color:#e6db74">&#39;myapp&#39;</span>, <span style="color:#e6db74">&#39;performance&#39;</span>).<span style="color:#a6e22e">then</span>((<span style="color:#a6e22e">report</span>) =&gt; {
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">report</span>);
-</span></span><span style="display:flex;"><span>    });
-</span></span></code></pre></div><h5 id="promiseany">Promise.any()</h5>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">    <span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">generateReport</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;diagnostic_channel&#39;</span>);
+
+    <span style="color:#a6e22e">generateReport</span>(<span style="color:#e6db74">&#39;myapp&#39;</span>, <span style="color:#e6db74">&#39;performance&#39;</span>).<span style="color:#a6e22e">then</span>((<span style="color:#a6e22e">report</span>) =&gt; {
+        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">report</span>);
+    });
+</code></pre></div><h5 id="promiseany">Promise.any()</h5>
 <p><em>Pre Node.js 20</em>, ako ste želeli da sačekate da se bilo koji Promise u nizu razreši ili odbije, morali ste da koristite spoljne biblioteke (third-party), kao što su Bluebird ili K. Na primer, ako ste imali niz Promise-a i želeli ste da sačekate da se prvi razreši, morali biste da koristite Bluebird na ovaj način:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> Promise <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;bluebird&#39;</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">promises</span> <span style="color:#f92672">=</span> [<span style="color:#a6e22e">promise1</span>, <span style="color:#a6e22e">promise2</span>, <span style="color:#a6e22e">promise3</span>];
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    Promise.<span style="color:#a6e22e">any</span>(<span style="color:#a6e22e">promises</span>).<span style="color:#a6e22e">then</span>((<span style="color:#a6e22e">result</span>) =&gt; {
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">result</span>);
-</span></span><span style="display:flex;"><span>    });
-</span></span></code></pre></div><p><em>Sa Node.js 20</em>, možete koristiti novu metodu Promise.any():</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">promises</span> <span style="color:#f92672">=</span> [<span style="color:#a6e22e">promise1</span>, <span style="color:#a6e22e">promise2</span>, <span style="color:#a6e22e">promise3</span>];
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    Promise.<span style="color:#a6e22e">any</span>(<span style="color:#a6e22e">promises</span>).<span style="color:#a6e22e">then</span>((<span style="color:#a6e22e">result</span>) =&gt; {
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">result</span>);
-</span></span><span style="display:flex;"><span>    });
-</span></span></code></pre></div><p>Ovaj metod vraća Promise koji je razrešen i sadrži vrednost prvog razrešenog Promise-a u nizu. Ako su svi Promisi odbijeni, metoda se odbija sa AggregateError-om koji sadrži sve razloge odbijanja.<br>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">    <span style="color:#66d9ef">const</span> Promise <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;bluebird&#39;</span>);
+
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">promises</span> <span style="color:#f92672">=</span> [<span style="color:#a6e22e">promise1</span>, <span style="color:#a6e22e">promise2</span>, <span style="color:#a6e22e">promise3</span>];
+
+    Promise.<span style="color:#a6e22e">any</span>(<span style="color:#a6e22e">promises</span>).<span style="color:#a6e22e">then</span>((<span style="color:#a6e22e">result</span>) =&gt; {
+        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">result</span>);
+    });
+</code></pre></div><p><em>Sa Node.js 20</em>, možete koristiti novu metodu Promise.any():</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">promises</span> <span style="color:#f92672">=</span> [<span style="color:#a6e22e">promise1</span>, <span style="color:#a6e22e">promise2</span>, <span style="color:#a6e22e">promise3</span>];
+
+    Promise.<span style="color:#a6e22e">any</span>(<span style="color:#a6e22e">promises</span>).<span style="color:#a6e22e">then</span>((<span style="color:#a6e22e">result</span>) =&gt; {
+        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">result</span>);
+    });
+</code></pre></div><p>Ovaj metod vraća Promise koji je razrešen i sadrži vrednost prvog razrešenog Promise-a u nizu. Ako su svi Promisi odbijeni, metoda se odbija sa AggregateError-om koji sadrži sve razloge odbijanja.<br>
 Metoda Promise.any(), pruža sažetiji i jednostavniji način za rukovanje višestrukim Promise-ima i čekanja da se prvi razreši ili odbije. Ovo može biti posebno korisno u situacijama kada treba da preuzmete podatke iz više izvora i želite da koristite onaj koji je najbrže odgovorio.</p>
 <p>Nadogradnjom na Node.js 20 i korišćenjem metode Promise.any(), možete da pojednostavite svoj kod i učinite ga efikasnijim, bez oslanjanja na spoljne biblioteke.</p>
 <p>Da biste instalirali najnoviju verziju Node.js, možete koristiti sledeću komandu u terminalu:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span>    <span style="color:#a6e22e">nvm</span> <span style="color:#a6e22e">install</span> <span style="color:#ae81ff">20.0</span>.<span style="color:#ae81ff">0</span>
-</span></span></code></pre></div><p>Ova komanda će preuzeti i instalirati najnoviju stabilnu verziju Node.js 20 na vašu mašinu.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">    <span style="color:#a6e22e">nvm</span> <span style="color:#a6e22e">install</span> <span style="color:#ae81ff">20.0</span>.<span style="color:#ae81ff">0</span>
+</code></pre></div><p>Ova komanda će preuzeti i instalirati najnoviju stabilnu verziju Node.js 20 na vašu mašinu.</p>
 <p>U današnjem svetu programiranja i brzog razvoja tehnologije, od suštinske je važnosti da budete u toku sa najnovijim trendovima i inovacijama. Node.js verzije <strong>16</strong>, <strong>18</strong> i <strong>20</strong> donele su uzbudljive nove feature-e koje uvode revoluciju u načinu na koji pristupate programiranju, a na vama je da ih istražite i primenite u svom radu. Držeći korak sa najnovijim verzijama Node.js i trendovima u programiranju, možete ostati relevantni i konkurentni u industriji.
 Pa šta čekate? Odvojite vreme da eksperimentišete sa ovim najnovijim verzijama Node.js-a i vidite kako vam one mogu pomoći da inovirate i unapredite svoje veštine kao programer. Budite u toku sa najnovijim dostignućima u Node.js i nastavite svoj razvoj!</p>
 <p>Ako želite da saznate više o svim feature-ima koje donose verzije 16, 18 i 20, pogledajte ove korisne linkove:</p>

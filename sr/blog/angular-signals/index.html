@@ -9,7 +9,7 @@
   
   <meta name="author" content="Tech9320">
   
-  <meta name="generator" content="Hugo 0.102.2" />
+  <meta name="generator" content="Hugo 0.92.2" />
 
   <!-- Bootstrap -->
   
@@ -136,17 +136,17 @@ Prilikom pokretanja Angular aplikacije, Zone.js &ldquo;<strong>monkey patch</str
 Šta uopšte znači termin monkey patching!?
 Monkey patching je termin koji označava dinamičko modifikovanje koda u toku rada aplikacije. I dalje zvuči konfuzno?
 Uzećemo <em>setTimeout</em> kao primer native browser API.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">originalSetTimeout</span> <span style="color:#f92672">=</span> window.<span style="color:#a6e22e">setTimeout</span>;
-</span></span><span style="display:flex;"><span>window.<span style="color:#a6e22e">setTimeout</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">cb</span>, <span style="color:#a6e22e">delay</span>) =&gt; {
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// Ubacivanje dodatnog koda unutar native API-ja
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;I&#39;m monkey patched&#34;</span>);
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">originalSetTimeout</span>(<span style="color:#a6e22e">cb</span>, <span style="color:#a6e22e">delay</span>);
-</span></span><span style="display:flex;"><span>};
-</span></span></code></pre></div><p>Šta mislite da će se desiti kada bi pokrenuli funkciju</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">setTimeout</span>(() =&gt; {
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;Hello&#34;</span>);
-</span></span><span style="display:flex;"><span>}, <span style="color:#ae81ff">1000</span>);
-</span></span></code></pre></div><p>Ako je vaš odgovor da će u konzoli pojaviti tekst &ldquo;<em>I&rsquo;m monkey patched</em>&rdquo; i nakon jedne sekunde tekst &ldquo;<em>Hello</em>&rdquo; u pravu ste.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">originalSetTimeout</span> <span style="color:#f92672">=</span> window.<span style="color:#a6e22e">setTimeout</span>;
+window.<span style="color:#a6e22e">setTimeout</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">cb</span>, <span style="color:#a6e22e">delay</span>) =&gt; {
+  <span style="color:#75715e">// Ubacivanje dodatnog koda unutar native API-ja
+</span><span style="color:#75715e"></span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;I&#39;m monkey patched&#34;</span>);
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">originalSetTimeout</span>(<span style="color:#a6e22e">cb</span>, <span style="color:#a6e22e">delay</span>);
+};
+</code></pre></div><p>Šta mislite da će se desiti kada bi pokrenuli funkciju</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">setTimeout</span>(() =&gt; {
+  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;Hello&#34;</span>);
+}, <span style="color:#ae81ff">1000</span>);
+</code></pre></div><p>Ako je vaš odgovor da će u konzoli pojaviti tekst &ldquo;<em>I&rsquo;m monkey patched</em>&rdquo; i nakon jedne sekunde tekst &ldquo;<em>Hello</em>&rdquo; u pravu ste.
 Promenili smo svojstvo native API-ja tako što smo originalni API sačuvali u promenjivoj <em>originalSetTimeout</em>, nakon čega smo redeklarisali taj isti API tako što
 smo mu dodelili vrednost starog i dodali novu liniju koda (linija 4). Kao što možete da vidite svako od nas može da menja API-jeve po svojoj volji, zar to nije super!
 Zone.js biblioteka radi isto to, samo što su dodatne funckionalnosti koje dodaje vezane za mehanizam za detekciju promena unutar Angular okruženja.</p>
@@ -180,28 +180,28 @@ Više o <em>OnPush Change Detection</em> strategiji možete pročitati na ovom b
 <p>Dolazimo do &ldquo;<strong>mesa</strong>&rdquo; našeg bloga. Signali predstavljaju novu primitivu u Angularu
 (<em>SolidJS</em> je prvi frejmvork koji ih je popularizovao, iako se kao koncept koristio u <em>Knockout.js</em>-u).
 možete ih zamisliti kao omotač oko primitivne vrednosti.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">signal</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;@angular/core&#34;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">age</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">signal</span>(<span style="color:#ae81ff">25</span>);
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">people</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">signal</span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">string</span>[]<span style="color:#f92672">&gt;</span>([]);
-</span></span></code></pre></div><p>Signale kreiramo korišćenjem signal funkcije iz <strong>@angular/core</strong> paketa, inicijalizujemo ih pozivanjem signal konstruktor funkcije.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">signal</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;@angular/core&#34;</span>
+
+<span style="color:#a6e22e">age</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">signal</span>(<span style="color:#ae81ff">25</span>);
+<span style="color:#a6e22e">people</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">signal</span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">string</span>[]<span style="color:#f92672">&gt;</span>([]);
+</code></pre></div><p>Signale kreiramo korišćenjem signal funkcije iz <strong>@angular/core</strong> paketa, inicijalizujemo ih pozivanjem signal konstruktor funkcije.
 U ovom primeru možemo da primetimo da signal mora da ima početnu vrednost (slično kao <em>BehaviorSubject</em> u rxjs-u). Na koji nacin možete da koristite signale?
 U sledećem kodu možete videti neke od funkcionalnosti.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">age</span>()); <span style="color:#75715e">// Prikazi vrednost signala
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">age</span>.<span style="color:#a6e22e">set</span>(<span style="color:#ae81ff">10</span>); <span style="color:#75715e">// Promena inicijalne vrednost signala
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">age</span>.<span style="color:#a6e22e">update</span>((<span style="color:#a6e22e">currentAge</span>) =&gt; <span style="color:#a6e22e">currentAge</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>); <span style="color:#75715e">// Ažurira vrednost signala koristeci prošlu vrednost kao prvi argument
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">people</span>.<span style="color:#a6e22e">mutate</span>((<span style="color:#a6e22e">peopleList</span>) =&gt; {
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">peopleList</span>.<span style="color:#a6e22e">push</span>(<span style="color:#e6db74">&#34;Marko&#34;</span>); <span style="color:#75715e">// Slično kao update, samo što možemo promeniti vrednost na mutabilan način
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>});
-</span></span></code></pre></div><p>Primećujete da kada želimo da pristupimo vrednosti signala, taj signal moramo pozvati kao funkciju bez parametara (<em>getter</em> funkciju).
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">age</span>()); <span style="color:#75715e">// Prikazi vrednost signala
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">age</span>.<span style="color:#a6e22e">set</span>(<span style="color:#ae81ff">10</span>); <span style="color:#75715e">// Promena inicijalne vrednost signala
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">age</span>.<span style="color:#a6e22e">update</span>((<span style="color:#a6e22e">currentAge</span>) =&gt; <span style="color:#a6e22e">currentAge</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>); <span style="color:#75715e">// Ažurira vrednost signala koristeci prošlu vrednost kao prvi argument
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">people</span>.<span style="color:#a6e22e">mutate</span>((<span style="color:#a6e22e">peopleList</span>) =&gt; {
+  <span style="color:#a6e22e">peopleList</span>.<span style="color:#a6e22e">push</span>(<span style="color:#e6db74">&#34;Marko&#34;</span>); <span style="color:#75715e">// Slično kao update, samo što možemo promeniti vrednost na mutabilan način
+</span><span style="color:#75715e"></span>});
+</code></pre></div><p>Primećujete da kada želimo da pristupimo vrednosti signala, taj signal moramo pozvati kao funkciju bez parametara (<em>getter</em> funkciju).
 Ovo izgleda super, ali za sada sve ovo dosta podseća na <em>Map</em> objekat u Javascriptu.
 Sada ćemo predstaviti jednu dodatnu fukncionalnost signala koja će sve to promeniti.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">div</span>&gt;{{ age() }}&lt;/<span style="color:#f92672">div</span>&gt;
-</span></span></code></pre></div><p>Signale možemo direktno da koristimo u našem template-u, i prilikom svake promene signala on će obavestiti sve korisnike tog signala da mu se vrednost promenila.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">div</span>&gt;{{ age() }}&lt;/<span style="color:#f92672">div</span>&gt;
+</code></pre></div><p>Signale možemo direktno da koristimo u našem template-u, i prilikom svake promene signala on će obavestiti sve korisnike tog signala da mu se vrednost promenila.
 Ovo vas možda podseća na observable pattern, samo što postoji par razlika (signali i jesu, kao i rxjs primitive, reaktivni).</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">div</span>&gt;{{ age | async }}&lt;/<span style="color:#f92672">div</span>&gt;
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">age</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">BehaviorSubject</span>(<span style="color:#ae81ff">25</span>);
-</span></span></code></pre></div><p>Prva jeste da ne moramo nigde da se subscribujemo na signal (samo ga pozivamo na template-u, izbegavajući mogućnost potencijalnog memory leak-a), druga, i mnogo bitnija, jeste da vam za ovo uopšte nije potrebna Zone.js biblioteka!!!
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">div</span>&gt;{{ age | async }}&lt;/<span style="color:#f92672">div</span>&gt;
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">age</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">BehaviorSubject</span>(<span style="color:#ae81ff">25</span>);
+</code></pre></div><p>Prva jeste da ne moramo nigde da se subscribujemo na signal (samo ga pozivamo na template-u, izbegavajući mogućnost potencijalnog memory leak-a), druga, i mnogo bitnija, jeste da vam za ovo uopšte nije potrebna Zone.js biblioteka!!!
 Primećujete takodje da rxjs može biti zamenjen sa signalima (o ovome će biti malo više reći kasnije u tekstu).
 Napomenuli smo iznad da signali mogu imati korisnike, šta to znači?
 Signale delimo na:</p>
@@ -211,36 +211,36 @@ Signale delimo na:</p>
 </ul>
 <p>Writable signale možemo još i nazvati proizvodjačima, jer oni proizvode neku novu vrednost (vidite primer age signala iznad). Readonly signali direktno zavise od drugog signala
 (i njihova vrednost može samo da se čita, nije je moguce promeniti sa nekom od funkcija). Kako bi bilo jasnije šta su izvedeni signali, prikazaćemo primer jednog od njih</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">olderBrotherAge</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">computed</span>(() =&gt; <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">age</span>() <span style="color:#f92672">+</span> <span style="color:#ae81ff">4</span>);
-</span></span></code></pre></div><p>Da bismo napravili readonly signal koristimo <em>computed</em> funkciju, u koju prosledjujemo signal čije promene želimo da pratimo. Razlika izmedju computed (ili readonly) signala
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">olderBrotherAge</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">computed</span>(() =&gt; <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">age</span>() <span style="color:#f92672">+</span> <span style="color:#ae81ff">4</span>);
+</code></pre></div><p>Da bismo napravili readonly signal koristimo <em>computed</em> funkciju, u koju prosledjujemo signal čije promene želimo da pratimo. Razlika izmedju computed (ili readonly) signala
 u poredjenju sa generičkim (ili Writable) signalom jeste u tome da se poslednja vrednost computed signala kešira,
 tako da ukoliko nije došlo do promene vrednosti signala koji se koristi unutar callback funkcije izvedenog (computed) signala, callback se nece ponovo izvršiti.</p>
 <p>Još jedna funkcija koju ćemo napomenuti je efekat.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">effect</span>(() =&gt; {
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;Brothers age changed to: &#34;</span>, <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">olderBrotherAge</span>());
-</span></span><span style="display:flex;"><span>});
-</span></span></code></pre></div><p><em>Efekat</em> funkcija zakazuje i pokreće sporedne efekte u reaktivnom kontekstu.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">effect</span>(() =&gt; {
+  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;Brothers age changed to: &#34;</span>, <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">olderBrotherAge</span>());
+});
+</code></pre></div><p><em>Efekat</em> funkcija zakazuje i pokreće sporedne efekte u reaktivnom kontekstu.
 Callback funkcija efekta se ponovo izvršava (<em>re-execute</em>) kada dodje do promene bilo kog signala koji se koriste unutar njega (primer iznad, ako bi došlo do promene
 <em>olderBrotherAge</em> signala, <em>console log</em> bi se ponovo izvršio).
 Kako uopšte svi ovi signali i sporedni efekti komuniciraju jedni sa drugima?</p>
 <h4 id="pushpull"><strong>Push/Pull</strong></h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">div</span>&gt;{{age()}}&lt;/<span style="color:#f92672">div</span>&gt;
-</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">div</span>&gt;{{olderBrotherAge()}}&lt;/<span style="color:#f92672">div</span>&gt;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">button</span> <span style="color:#960050;background-color:#1e0010">(</span><span style="color:#a6e22e">click</span><span style="color:#960050;background-color:#1e0010">)=&#34;</span><span style="color:#a6e22e">increase</span><span style="color:#960050;background-color:#1e0010">()&#34;</span>&gt;Povećaj godine&lt;/<span style="color:#f92672">button</span>&gt;
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span>    <span style="color:#a6e22e">age</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">signal</span>(<span style="color:#ae81ff">8</span>);
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">olderBrotherAge</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">computed</span>(() =&gt; <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">age</span>() <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">40</span> <span style="color:#f92672">?</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">age</span>() <span style="color:#f92672">+</span> <span style="color:#ae81ff">4</span> <span style="color:#f92672">:</span> <span style="color:#ae81ff">44</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">constructor</span>() {
-</span></span><span style="display:flex;"><span>     <span style="color:#a6e22e">effect</span>(() =&gt; {
-</span></span><span style="display:flex;"><span>       <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">olderBrotherAge</span>() <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">18</span> <span style="color:#f92672">?</span> <span style="color:#e6db74">`Brother is an adult and he is: </span><span style="color:#e6db74">${</span><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">olderBrotherAg</span>()<span style="color:#e6db74">}</span><span style="color:#e6db74"> years old`</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Brother is not an adult yet&#39;</span>);
-</span></span><span style="display:flex;"><span>     })
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">increase</span>() {
-</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">age</span>.<span style="color:#a6e22e">update</span>((<span style="color:#a6e22e">previousAge</span>) =&gt; <span style="color:#a6e22e">previousAge</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>);
-</span></span><span style="display:flex;"><span>    }
-</span></span></code></pre></div><p>Napisali smo jedan primer mini aplikacije u kojoj imamo dugme preko koga možemo da povećamo godine sebi. Naš brat je stariji od nas 4 godine tako da će njegove godine uvek biti naše godine plus 4 (linija 2).
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">div</span>&gt;{{age()}}&lt;/<span style="color:#f92672">div</span>&gt;
+&lt;<span style="color:#f92672">div</span>&gt;{{olderBrotherAge()}}&lt;/<span style="color:#f92672">div</span>&gt;
+
+&lt;<span style="color:#f92672">button</span> <span style="color:#960050;background-color:#1e0010">(</span><span style="color:#a6e22e">click</span><span style="color:#960050;background-color:#1e0010">)=&#34;</span><span style="color:#a6e22e">increase</span><span style="color:#960050;background-color:#1e0010">()&#34;</span>&gt;Povećaj godine&lt;/<span style="color:#f92672">button</span>&gt;
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">    <span style="color:#a6e22e">age</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">signal</span>(<span style="color:#ae81ff">8</span>);
+    <span style="color:#a6e22e">olderBrotherAge</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">computed</span>(() =&gt; <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">age</span>() <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">40</span> <span style="color:#f92672">?</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">age</span>() <span style="color:#f92672">+</span> <span style="color:#ae81ff">4</span> <span style="color:#f92672">:</span> <span style="color:#ae81ff">44</span>);
+
+    <span style="color:#a6e22e">constructor</span>() {
+     <span style="color:#a6e22e">effect</span>(() =&gt; {
+       <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">olderBrotherAge</span>() <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">18</span> <span style="color:#f92672">?</span> <span style="color:#e6db74">`Brother is an adult and he is: </span><span style="color:#e6db74">${</span><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">olderBrotherAg</span>()<span style="color:#e6db74">}</span><span style="color:#e6db74"> years old`</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Brother is not an adult yet&#39;</span>);
+     })
+    }
+
+    <span style="color:#a6e22e">increase</span>() {
+      <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">age</span>.<span style="color:#a6e22e">update</span>((<span style="color:#a6e22e">previousAge</span>) =&gt; <span style="color:#a6e22e">previousAge</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>);
+    }
+</code></pre></div><p>Napisali smo jedan primer mini aplikacije u kojoj imamo dugme preko koga možemo da povećamo godine sebi. Naš brat je stariji od nas 4 godine tako da će njegove godine uvek biti naše godine plus 4 (linija 2).
 Nakon što mi napunimo 40 godina neko iz ministarstva unutrašnjih poslova slučajno briše sve informacije o našem bratu iz baze podataka, tako da po poslednjim informacijama znamo da on ima 44 godine.
 Imamo jedan efekat koji osluškuje da li je naš brat punoletan (linija 5). Šta se dešava kada kliknemo na dugme &ldquo;Povećaj godine&rdquo; (ignorisaćemo početno stanje za sad, s obzirom da se isto dešava prilikom inicijalnog pokretanja).</p>
 <h5 id="1-promena-našeg-writable-signala-u-ovom-primeru-_age_-signal-pokreće-pushpull-algoritam">1. Promena našeg Writable signala (u ovom primeru <em>age</em> signal) pokreće Push/Pull algoritam</h5>
