@@ -9,7 +9,7 @@
   
   <meta name="author" content="Tech9320">
   
-  <meta name="generator" content="Hugo 0.92.2" />
+  <meta name="generator" content="Hugo 0.102.2" />
 
   <!-- Bootstrap -->
   
@@ -96,13 +96,6 @@ if (!doNotTrack) {
           </a>
         </li>
          
-        <li class="nav-item">
-           
-          <a class="nav-link" href="/sr/blog/1681760950-pwa/"
-            >SRB</a
-          >
-           
-        </li>
       </ul>
     </div>
   </div>
@@ -134,34 +127,33 @@ if (!doNotTrack) {
 <p>Firstly, open the Lighthouse tab in your developer tools, and conduct an audit of your website.</p>
 <p><img src="../../../images/blog/progressive-web-app-lighthouse.png" alt="Lighthouse"></p>
 <p>Primarily, you have to ensure that your website is fast and accessible on mobile devices. This is not rocket science, as most websites already satisfy this requirement. The harder part is to make your app accessible <strong>without an internet connection</strong>. For this challenge, you have to register a <strong>service worker</strong> that runs in the background and performs tasks like caching, synchronization, and listening for push notifications.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">
-<span style="color:#66d9ef">if</span> (<span style="color:#e6db74">&#39;serviceWorker&#39;</span> <span style="color:#66d9ef">in</span> <span style="color:#a6e22e">navigator</span>) {
-  <span style="color:#a6e22e">navigator</span>.<span style="color:#a6e22e">serviceWorker</span>.<span style="color:#a6e22e">register</span>(<span style="color:#e6db74">&#39;service-worker.js&#39;</span>)
-  .<span style="color:#a6e22e">then</span>(<span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">registration</span>) {
-    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;Service worker registration successful&#39;</span>);
-  })
-  .<span style="color:#66d9ef">catch</span>(<span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">err</span>) {
-    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;Service worker registration failed: &#39;</span>, <span style="color:#a6e22e">err</span>);
-  });
-}
-
-</code></pre></div><p>The final step is defining a <strong>manifest.json</strong> file. This is a configuration file that contains information about your app, such as its name, icons, and start page. The manifest.json file also tells the browser that your website is a PWA.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-  <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;Tech9320 Web App&#34;</span>,
-  <span style="color:#f92672">&#34;short_name&#34;</span>: <span style="color:#e6db74">&#34;Tech9320&#34;</span>,
-  <span style="color:#f92672">&#34;start_url&#34;</span>: <span style="color:#e6db74">&#34;/index.html&#34;</span>,
-  <span style="color:#f92672">&#34;display&#34;</span>: <span style="color:#e6db74">&#34;standalone&#34;</span>,
-  <span style="color:#f92672">&#34;background_color&#34;</span>: <span style="color:#e6db74">&#34;#ffffff&#34;</span>,
-  <span style="color:#f92672">&#34;theme_color&#34;</span>: <span style="color:#e6db74">&#34;#ffffff&#34;</span>,
-  <span style="color:#f92672">&#34;icons&#34;</span>: [
-    {
-      <span style="color:#f92672">&#34;src&#34;</span>: <span style="color:#e6db74">&#34;icon-512.png&#34;</span>,
-      <span style="color:#f92672">&#34;sizes&#34;</span>: <span style="color:#e6db74">&#34;512x512&#34;</span>,
-      <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;image/png&#34;</span>
-    }
-  ]
-}
-</code></pre></div><p>When you satisfy these conditions, you will see that the PWA badge in Lighthouse is achieved.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> (<span style="color:#e6db74">&#39;serviceWorker&#39;</span> <span style="color:#66d9ef">in</span> <span style="color:#a6e22e">navigator</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">navigator</span>.<span style="color:#a6e22e">serviceWorker</span>.<span style="color:#a6e22e">register</span>(<span style="color:#e6db74">&#39;service-worker.js&#39;</span>)
+</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">then</span>(<span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">registration</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;Service worker registration successful&#39;</span>);
+</span></span><span style="display:flex;"><span>  })
+</span></span><span style="display:flex;"><span>  .<span style="color:#66d9ef">catch</span>(<span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">err</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;Service worker registration failed: &#39;</span>, <span style="color:#a6e22e">err</span>);
+</span></span><span style="display:flex;"><span>  });
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>The final step is defining a <strong>manifest.json</strong> file. This is a configuration file that contains information about your app, such as its name, icons, and start page. The manifest.json file also tells the browser that your website is a PWA.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;Tech9320 Web App&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;short_name&#34;</span>: <span style="color:#e6db74">&#34;Tech9320&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;start_url&#34;</span>: <span style="color:#e6db74">&#34;/index.html&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;display&#34;</span>: <span style="color:#e6db74">&#34;standalone&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;background_color&#34;</span>: <span style="color:#e6db74">&#34;#ffffff&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;theme_color&#34;</span>: <span style="color:#e6db74">&#34;#ffffff&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;icons&#34;</span>: [
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;src&#34;</span>: <span style="color:#e6db74">&#34;icon-512.png&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;sizes&#34;</span>: <span style="color:#e6db74">&#34;512x512&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;image/png&#34;</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  ]
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>When you satisfy these conditions, you will see that the PWA badge in Lighthouse is achieved.</p>
 <p><strong>Congratulations</strong>, your app is now ready to be downloaded on mobile devices or listed on app stores like Microsoft Store and Google Play Store!</p>
 <hr>
 <p>Even though this article presents PWAs as a simple solution for multiple devices, developing a good Progressive Web Application that satisfies all the aforementioned conditions can be a challenging task. Here at Tech9320, developers are highly skilled and experienced in this sort of tasks. Whether you want to turn your website into a PWA or want to build PWA from scratch we assure you that you are on the right place. We can create a PWA that will exceed your expectations as soon as you need it. Feel free to contact us.</p>
