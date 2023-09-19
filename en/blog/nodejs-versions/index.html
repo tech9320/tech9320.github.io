@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="sr"><head>
+  <meta charset="utf-8" />
+  <title>Node.js - latest versions and features</title>
+
+  <!-- mobile responsive meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  
+  <meta name="author" content="Tech9320">
+  
+  <meta name="generator" content="Hugo 0.102.2" />
+
+  <!-- Bootstrap -->
+  
+  <link rel="stylesheet" href="https://9320.tech/css/bootstrap.min.css" />
+  <!-- font-awesome -->
+  <link rel="stylesheet" href="https://9320.tech/font-awesome/css/font-awesome.min.css" />
+  <!-- Main Stylesheets -->
+  
+  <link href="https://9320.tech/scss/style.min.css" rel="stylesheet" />
+  
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QXRDBKKF8K"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-QXRDBKKF8K', { 'anonymize_ip': false });
+}
+</script>
+
+  
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'G-QXRDBKKF8K', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+  
+  <link rel="shortcut icon" href="https://9320.tech/images/favicon.png" type="image/x-icon" />
+  <link rel="icon" href="https://9320.tech/images/favicon.png" type="image/x-icon" />
+</head><body><nav class="navbar navbar-expand-lg site-navigation">
+  <div class="container">
+    <a class="navbar-brand" href="https://9320.tech/" style="width: 300px">
+      <img style="width: 168px; height: 35px; max-width: 168px" src="https://9320.tech/images/logo-horizontal-black.png" alt="logo" />
+    </a>
+    <button
+      class="navbar-toggler collapsed"
+      type="button"
+      data-toggle="collapse"
+      data-target="#sitenavbar"
+    >
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="sitenavbar">
+      <ul class="navbar-nav ml-auto main-nav">
+           
+        <li class="nav-item">
+          <a class="nav-link" href="/en/">Home Page</a>
+        </li>
+          
+        <li class="nav-item">
+          <a class="nav-link" href="/en/about/">About Us</a>
+        </li>
+          
+        <li class="nav-item">
+          <a class="nav-link" href="/en/portfolio/">Services</a>
+        </li>
+          
+        <li class="nav-item">
+          <a class="nav-link" href="/en/blog/">Blog</a>
+        </li>
+          
+        <li class="nav-item">
+          <a class="nav-link blink" href="/en/agro-invest/">AgroInvest</a>
+        </li>
+          
+        <li class="nav-item">
+          <a
+            class="nav-link btn btn-sm btn-primary btn-sm-rounded"
+            href="/en/contact/"
+          >
+            <span class="btn-area">
+              <span data-text="Contact"> Contact </span>
+            </span>
+          </a>
+        </li>
+         
+      </ul>
+    </div>
+  </div>
+</nav>
+<main>
+
+<section class="site-blog details">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-12">
+        <article class="site-blog-details">
+          <p><span>May 11, 2023</span> by <span>David Čuturilo</span></p>
+          <h2 class="blog-title">Node.js - latest versions and features</h2>
+          <p class="feature-image-wrap">
+            <img class="feature-image" src="https://9320.tech/images/blog/nodejs-versions.jpg" alt="blog-feature-image">
+          </p>
+          <p>Node.js is a popular JavaScript runtime that allows developers to build scalable and high-performance applications. With its frequent updates, Node.js keeps improving it&rsquo;s performance and features. The latest releases, version <strong>16</strong>, <strong>18</strong>, and <strong>20</strong>, brought many exciting features for developers to explore. In this blog, we&rsquo;ll take a look at some of the new features and why it&rsquo;s essential to keep up with Node.js upgrades.</p>
+<p>We will start with Node.js version 16 and the features that it brought up.</p>
+<hr>
+<h4 id="nodejs-version-16">Node.js Version 16</h4>
+<p>Node.js 16 is an LTS (Long Term Support) release, which means it will receive updates and security fixes for the next three years. Some of the notable features include:</p>
+<h5 id="v8-version-90">V8 version 9.0</h5>
+<p>Node.js version 16 includes the latest version of V8 (version 9.0), which brings several performance improvements and new language features such as optional chaining and nullish coalescing.</p>
+<p><em>Example before Node.js 16:</em></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span>    <span style="color:#75715e">// Without optional chaining operator
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">user</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Example Name&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">address</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">city</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Belgrade&#39;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">state</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Serbia&#39;</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">state</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">user</span>.<span style="color:#a6e22e">address</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">user</span>.<span style="color:#a6e22e">address</span>.<span style="color:#a6e22e">state</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">state</span>); <span style="color:#75715e">// Output: &#34;Serbia&#34;
+</span></span></span></code></pre></div><p><em>With Node.js 16:</em></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span>    <span style="color:#75715e">// With optional chaining operator
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">user</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Example Name&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">address</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">city</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Belgrade&#39;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">state</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Serbia&#39;</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">state</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">user</span>.<span style="color:#a6e22e">address</span><span style="color:#f92672">?</span>.<span style="color:#a6e22e">state</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">state</span>); <span style="color:#75715e">// Output: &#34;Serbia&#34;
+</span></span></span></code></pre></div><p>Another example is presented through calculation exponents.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span>    <span style="color:#75715e">// Before Node.js 16:
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">result</span> <span style="color:#f92672">=</span> Math.<span style="color:#a6e22e">pow</span>(<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">2</span>); <span style="color:#75715e">// 9
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// With Node.js 16, you can use code the &#39;**&#39; operator directly:*
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">result</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span> <span style="color:#f92672">**</span> <span style="color:#ae81ff">2</span>; <span style="color:#75715e">// 9
+</span></span></span></code></pre></div><h5 id="web-crypto-api">Web Crypto API</h5>
+<p><em>Before Node.js 16</em>, if you wanted to perform cryptographic operations, you had to use third-party libraries like OpenSSL or CryptoJS. For example, if you wanted to encrypt a message with AES encryption, you would have to use a library like CryptoJS:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span>    <span style="color:#75715e">// Without built-in support for cryptographic operations
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">crypto</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;crypto&#39;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">generateKey</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">key</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">crypto</span>.<span style="color:#a6e22e">randomBytes</span>(<span style="color:#ae81ff">32</span>).<span style="color:#a6e22e">toString</span>(<span style="color:#e6db74">&#39;hex&#39;</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">key</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">generateKey</span>();
+</span></span></code></pre></div><p><em>With Node.js 16</em>, you can use the Web Crypto API directly:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span>    <span style="color:#75715e">// With built-in support for cryptographic operations
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">crypto</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;crypto&#39;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">async</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">generateKey</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">algorithm</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;AES-GCM&#39;</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">length</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">256</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">key</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">crypto</span>.<span style="color:#a6e22e">generateKey</span>(<span style="color:#a6e22e">algorithm</span>, {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">length</span>,
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">key</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">generateKey</span>();
+</span></span></code></pre></div><hr>
+<h4 id="nodejs-version-18">Node.js Version 18</h4>
+<p>Node.js version 18 was released in April 2022 and comes with several new features and improvements. Two notable features are:</p>
+<h5 id="async-local-storage">Async local storage</h5>
+<p>Async local storage is a new API that allows developers to store data that is scoped to a particular execution context, such as an HTTP request. This makes it easy to share data between functions that are called in the same execution context.</p>
+<p><em>Before Node.js 18</em>, if you wanted to pass data between functions in an asynchronous call chain, you had to use callback arguments or global variables. For example, if you wanted to pass a user ID from one asynchronous function to another, you would have to use a global variable:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">userId</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">processRequest</span>(<span style="color:#a6e22e">request</span>, <span style="color:#a6e22e">callback</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">userId</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">getUserIdFromRequest</span>(<span style="color:#a6e22e">request</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">processRequestData</span>(<span style="color:#a6e22e">request</span>.<span style="color:#a6e22e">data</span>, <span style="color:#a6e22e">callback</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">processRequestData</span>(<span style="color:#a6e22e">data</span>, <span style="color:#a6e22e">callback</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// do something with data and userId
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#a6e22e">callback</span>();
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">getUserIdFromRequest</span>(<span style="color:#a6e22e">request</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">request</span>.<span style="color:#a6e22e">headers</span>[<span style="color:#e6db74">&#39;x-user-id&#39;</span>];
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></div><p><em>With Node.js 18</em>, you can use Async Local Storage to pass data between functions:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">AsyncLocalStorage</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;async_hooks&#39;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">asyncLocalStorage</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">AsyncLocalStorage</span>();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">async</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">processRequest</span>(<span style="color:#a6e22e">request</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">asyncLocalStorage</span>.<span style="color:#a6e22e">run</span>(<span style="color:#a6e22e">request</span>, <span style="color:#66d9ef">async</span> () =&gt; {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">userId</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">getUserIdFromRequest</span>(<span style="color:#a6e22e">request</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">processRequestData</span>(<span style="color:#a6e22e">request</span>.<span style="color:#a6e22e">data</span>, <span style="color:#a6e22e">userId</span>);
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">async</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">processRequestData</span>(<span style="color:#a6e22e">data</span>, <span style="color:#a6e22e">userId</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// do something with data and userId
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    }
+</span></span></code></pre></div><h5 id="stable-timers-api">Stable Timers API</h5>
+<p><em>Before Node.js 18</em>, the built-in timers in Node.js had an issue with precision that could cause them to fire later than expected. This was particularly problematic for applications that relied on precise timing, such as audio or video processing.
+<em>With Node.js 18</em>, the Stable Timers API was introduced, which provides timers with guaranteed accuracy and consistent behavior across different platforms. This means that you can rely on timers to fire exactly when you expect them to, without any variation.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">setStableTimeout</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;timers&#39;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">setStableTimeout</span>(() =&gt; {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;Timeout fired!&#39;</span>);
+</span></span><span style="display:flex;"><span>    }, <span style="color:#ae81ff">1000</span>);
+</span></span></code></pre></div><p>This code will fire the callback function exactly 1 second after the timer is started, regardless of any external factors that may affect the timing, such as system load or clock drift.
+This can be particularly useful for real-time applications that require precise timing, such as multimedia or game development.</p>
+<p>By upgrading to Node.js 18 and using the Stable Timers API, you can ensure that your applications are performing at their best and providing a seamless user experience.</p>
+<hr>
+<h4 id="nodejs-version-20">Node.js Version 20</h4>
+<p>Node.js 20 is a major release that&rsquo;s expected to have Long-Term Support (LTS) in October 2024. It comes with several performance optimization and security-related improvements. Though still in development stages, the developers have hinted at major changes and improvements, which will undoubtedly make it worth the wait.</p>
+<h5 id="performance-improvements">Performance improvements</h5>
+<p>Node.js 20 has several performance improvements that make it faster and more efficient. The updates include faster startup times, better memory management, and improved garbage collection.</p>
+<p><em>Before Node.js 20</em>, if you wanted to debug a performance issue or a crash in your application, you had to use external tools like the Chrome DevTools or the Node.js Inspector. This could be time-consuming and difficult to set up.</p>
+<p><em>With Node.js 20</em>, you can use the new Diagnostic Reports feature to automatically generate diagnostic reports that contain information about your application&rsquo;s performance, memory usage, and other metrics. For example, you can generate a report like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">generateReport</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;diagnostic_channel&#39;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">generateReport</span>(<span style="color:#e6db74">&#39;myapp&#39;</span>, <span style="color:#e6db74">&#39;performance&#39;</span>).<span style="color:#a6e22e">then</span>((<span style="color:#a6e22e">report</span>) =&gt; {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">report</span>);
+</span></span><span style="display:flex;"><span>    });
+</span></span></code></pre></div><h5 id="promiseany">Promise.any()</h5>
+<p><em>Before Node.js 20</em>, if you wanted to wait for any Promise in an array to resolve or reject, you had to use external libraries like Bluebird or Q. For example, if you had an array of Promises and you wanted to wait for the first one to resolve, you would have to use Bluebird like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> Promise <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;bluebird&#39;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">promises</span> <span style="color:#f92672">=</span> [<span style="color:#a6e22e">promise1</span>, <span style="color:#a6e22e">promise2</span>, <span style="color:#a6e22e">promise3</span>];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    Promise.<span style="color:#a6e22e">any</span>(<span style="color:#a6e22e">promises</span>).<span style="color:#a6e22e">then</span>((<span style="color:#a6e22e">result</span>) =&gt; {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">result</span>);
+</span></span><span style="display:flex;"><span>    });
+</span></span></code></pre></div><p><em>With Node.js 20</em>, you can use the new Promise.any() method:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">promises</span> <span style="color:#f92672">=</span> [<span style="color:#a6e22e">promise1</span>, <span style="color:#a6e22e">promise2</span>, <span style="color:#a6e22e">promise3</span>];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    Promise.<span style="color:#a6e22e">any</span>(<span style="color:#a6e22e">promises</span>).<span style="color:#a6e22e">then</span>((<span style="color:#a6e22e">result</span>) =&gt; {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">result</span>);
+</span></span><span style="display:flex;"><span>    });
+</span></span></code></pre></div><p>This method returns a Promise that is resolved with the value of the first resolved Promise in the array. If all of the Promises are rejected, the method is rejected with an AggregateError containing all of the rejection reasons.
+The Promise.any() method provides a more concise and straightforward way to handle multiple Promises and wait for the first one to resolve or reject. This can be particularly useful in situations where you need to fetch data from multiple sources and want to use the fastest one that responds.</p>
+<p>By upgrading to Node.js 20 and using the Promise.any() method, you can simplify your code and make it more efficient, without relying on external libraries.</p>
+<p>To install the latest Node.js version, we can use the following command in terminal:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span>    <span style="color:#a6e22e">nvm</span> <span style="color:#a6e22e">install</span> <span style="color:#ae81ff">20.0</span>.<span style="color:#ae81ff">0</span>
+</span></span></code></pre></div><p>This command will download and install the latest stable version of Node.js 20 on your machine.</p>
+<p>In today&rsquo;s fast-paced world of programming and technology, it&rsquo;s essential to stay up-to-date with the latest trends and innovations to ensure that you&rsquo;re not left behind. Node.js versions <strong>16</strong>, <strong>18</strong>, and <strong>20</strong> have brought exciting new features that can revolutionize the way you approach programming, and it&rsquo;s up to you to explore and implement them in your work. By keeping up with the latest Node.js versions and the trends within programming, you can stay relevant and competitive in the industry.
+So, what are you waiting for? Take the time to experiment with these newest versions of Node.js and see how they can help you innovate and grow your skills as a developer. Stay current with the latest advancements in Node.js and continue the journey!</p>
+<p>If you want to find out more about all features that versions 16, 18 and 20 bring, check out these useful links:</p>
+<ul>
+<li>&ldquo;What&rsquo;s new in Node.js 16: <a href="https://www.howtogeek.com/devops/whats-new-in-node-js-16/">https://www.howtogeek.com/devops/whats-new-in-node-js-16/</a></li>
+<li>The Changelog podcast episode on Node.js 18: <a href="https://changelog.com/podcast/477">https://changelog.com/podcast/477</a></li>
+<li>Node.js documentation: <a href="https://nodejs.org/docs/latest-v20.x/api/">https://nodejs.org/docs/latest-v20.x/api/</a></li>
+</ul>
+
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+        </main><footer class="site-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="site-footer-logo"><a href="https://9320.tech/"><img style="width: 168px; height: 35.5px;" src="https://9320.tech/images/logo-horizontal-white.png" alt="logo-footer"></a></div>
+      </div>
+      
+      <div class="col-lg-3 col-md-6">
+        <div class="site-footer-widget">
+          <h5 class="site-footer-widget-title">Contact Info</h5>
+          <p class="site-footer-widget-description">
+            11000 Belgrade, Serbia
+            
+            <br>
+            <a href="mailto:office@9320.tech">office@9320.tech</a>
+          </p>
+        </div>
+      </div>
+      
+      
+      <div class="col-lg-2 col-md-6">
+        <div class="site-footer-widget">
+          <h5 class="site-footer-widget-title">Site Map</h5>
+          <ul class="site-footer-widget-links">
+            
+            <li><a href="https://9320.tech/en/about">About Us</a></li>
+            
+            <li><a href="https://9320.tech/en/portfolio">Services</a></li>
+            
+            <li><a href="https://9320.tech/en/blog">Blog</a></li>
+            
+            <li><a href="https://9320.tech/en/agro-invest">AgroInvest</a></li>
+            
+            <li><a href="https://9320.tech/en/contact">Contact</a></li>
+            
+          </ul>
+        </div>
+      </div>
+      
+      
+      <div class="col-lg-2 col-md-6">
+        <div class="site-footer-widget">
+          <h5 class="site-footer-widget-title">Follow our Work!</h5>
+          <ul class="site-footer-widget-links">
+            
+              <li><a target="_blank" href="https://github.com/tech9320">GitHub</a></li>
+            
+              <li><a target="_blank" href="https://www.linkedin.com/company/tech9320">LinkedIn</a></li>
+            
+          </ul>
+        </div>
+      </div>
+      
+      
+      <div class="col-lg-3 col-md-6">
+        <div class="site-footer-widget">
+          <h5 class="site-footer-widget-title">We are here to help</h5>
+          <p class="site-footer-widget-description">
+            Web Site? Sure!<br>An App? Sure!<br>High Quality Guaranteed!
+          </p>
+        </div>
+      </div>
+      
+      <div class="col-lg-2 col-12">
+        <a href="#top" class="site-footer-widget-top">
+          <img src="https://9320.tech/images/to-top.svg" alt="back-to-top">
+          <p>
+            Return to
+            <br>
+            the top
+          </p>
+        </a>
+      </div>
+      <div class="col-12">
+        <div class="site-footer-copyright">
+          <p>© Copyright 2023 - HUGO theme by <a href="https://staticmania.com/" target="_blank">StaticMania</a>. Website by the Tech9320 team </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+<script src="https://9320.tech/js/vendor.min.js"></script>
+
+<script src="https://9320.tech/js/script.min.js"></script></body>
+</html>
