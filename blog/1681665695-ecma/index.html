@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8" />
+  <title>ECMAscript 2023 - Arrays&#43;&#43;</title>
+
+  <!-- mobile responsive meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  
+  <meta name="author" content="Tech9320">
+  
+  <meta name="generator" content="Hugo 0.102.2" />
+
+  <!-- Bootstrap -->
+  
+  <link rel="stylesheet" href="https://9320.tech/css/bootstrap.min.css" />
+  <!-- font-awesome -->
+  <link rel="stylesheet" href="https://9320.tech/font-awesome/css/font-awesome.min.css" />
+  <!-- Main Stylesheets -->
+  
+  <link href="https://9320.tech/scss/style.min.css" rel="stylesheet" />
+  
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QXRDBKKF8K"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-QXRDBKKF8K', { 'anonymize_ip': false });
+}
+</script>
+
+  
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'G-QXRDBKKF8K', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+  
+  <link rel="shortcut icon" href="https://9320.tech/images/favicon.png" type="image/x-icon" />
+  <link rel="icon" href="https://9320.tech/images/favicon.png" type="image/x-icon" />
+</head><body><nav class="navbar navbar-expand-lg site-navigation">
+  <div class="container">
+    <a class="navbar-brand" href="https://9320.tech/" style="width: 300px">
+      <img style="width: 168px; height: 35px; max-width: 168px" src="https://9320.tech/images/logo-horizontal-black.png" alt="logo" />
+    </a>
+    <button
+      class="navbar-toggler collapsed"
+      type="button"
+      data-toggle="collapse"
+      data-target="#sitenavbar"
+    >
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="sitenavbar">
+      <ul class="navbar-nav ml-auto main-nav">
+           
+        <li class="nav-item">
+          <a class="nav-link" href="/">Home Page</a>
+        </li>
+          
+        <li class="nav-item">
+          <a class="nav-link" href="/about/">About Us</a>
+        </li>
+          
+        <li class="nav-item">
+          <a class="nav-link" href="/portfolio/">Services</a>
+        </li>
+          
+        <li class="nav-item">
+          <a class="nav-link" href="/blog/">Blog</a>
+        </li>
+          
+        <li class="nav-item">
+          <a class="nav-link blink" href="/agro-invest/">AgroInvest</a>
+        </li>
+          
+        <li class="nav-item">
+          <a
+            class="nav-link btn btn-sm btn-primary btn-sm-rounded"
+            href="/contact/"
+          >
+            <span class="btn-area">
+              <span data-text="Contact"> Contact </span>
+            </span>
+          </a>
+        </li>
+         
+      </ul>
+    </div>
+  </div>
+</nav>
+<main>
+
+<section class="site-blog details">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-12">
+        <article class="site-blog-details">
+          <p><span>April 30, 2023</span> by <span>Stevan Radovanović</span></p>
+          <h2 class="blog-title">ECMAscript 2023 - Arrays&#43;&#43;</h2>
+          <p class="feature-image-wrap">
+            <img class="feature-image" src="https://9320.tech/images/blog/ecma2023.jpeg" alt="blog-feature-image">
+          </p>
+          <p><strong>ECMAScript 2023</strong>, the next planned update to the official specification for the JavaScript programming language, is right around the corner. Every year at approximately the same time, we are blessed with a couple of new features which improve the quality of life for all JS developers. In this article, I&rsquo;ll focus on the changes related to the array prototype.</p>
+<hr>
+<h3 id="findlast-and-findlastindex"><strong>findLast() and findLastIndex()</strong></h3>
+<p>Finding the last element in an array that satisfies a certain condition seems like a pretty straightforward thing, right? Strangely, it&rsquo;s currently not represented by an array method, and this proposal aims to change that. Let&rsquo;s first see how we currently tackle this situation:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">array</span> <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/* via standard for loop, starting from the end */</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">index</span> <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">array</span>.<span style="color:#a6e22e">length</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">--</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">array</span>[<span style="color:#a6e22e">i</span>] <span style="color:#f92672">===</span> <span style="color:#ae81ff">3</span>) {
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">index</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">i</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">break</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/* reversing the array */</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">index</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">array</span>.<span style="color:#a6e22e">reverse</span>().<span style="color:#a6e22e">findIndex</span>((<span style="color:#a6e22e">elem</span>) =&gt; <span style="color:#a6e22e">elem</span> <span style="color:#f92672">===</span> <span style="color:#ae81ff">3</span>);
+</span></span></code></pre></div><p>While completely valid, both of these solutions are lacking in some departments.</p>
+<p>The first one is too verbose, and although more performant, we should always aim to use built-in array methods (they are built-in for a reason).</p>
+<p>The second one has an obvious problem - the reverse method is destructive. That means the original array will be permanently reversed, which in most cases is not what we wanna do. Apart from that, this method requires two passes through the array. Not ideal&hellip;</p>
+<p>ECMAscript 2023 will offer a much simpler solution:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>    <span style="color:#75715e">/* ECMAscript 2023 solution */</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">index</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">array</span>.<span style="color:#a6e22e">findLastIndex</span>((<span style="color:#a6e22e">elem</span>) =&gt; <span style="color:#a6e22e">elem</span> <span style="color:#f92672">===</span> <span style="color:#ae81ff">3</span>);
+</span></span></code></pre></div><p><strong>Less verbose, no additional passes through the array, no mutations, no copies</strong> - noice. Similar methods already exist in .NET and Java, so it&rsquo;s prime time for this to become a standard thing in the JS ecosystem as well.</p>
+<p>Here&rsquo;s a real life use-case where this could be used to greatly improve the quality of code:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>    <span style="color:#75715e">/* Chronological list of transactions retrieved from a BE service */</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">transactions</span> <span style="color:#f92672">=</span> [
+</span></span><span style="display:flex;"><span>        {<span style="color:#a6e22e">id</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1</span>, <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Deposit&#39;</span>, <span style="color:#a6e22e">amountInCents</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">15000</span>},
+</span></span><span style="display:flex;"><span>        {<span style="color:#a6e22e">id</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">2</span>, <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Deposit&#39;</span>, <span style="color:#a6e22e">amountInCents</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">20000</span>},
+</span></span><span style="display:flex;"><span>        {<span style="color:#a6e22e">id</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">3</span>, <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;ATM Withdrawal&#39;</span>, <span style="color:#a6e22e">amountInCents</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">30000</span>},
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// ...
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    ]
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/* Finding the latest transaction that satisfies a certain condition */</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">t</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">transactions</span>.<span style="color:#a6e22e">findLast</span>(<span style="color:#a6e22e">elem</span> =&gt; <span style="color:#a6e22e">elem</span>.<span style="color:#a6e22e">amountInCents</span> <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">25000</span>);
+</span></span></code></pre></div><p>Pretty neat!</p>
+<hr>
+<h3 id="changing-arrays-by-copy"><strong>Changing arrays by copy</strong></h3>
+<p>This new feature introduces special variants of existing array methods, making them non-destructive. This means that the original array reference stays the same after their execution. The method included in the proposal are:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>    Array.<span style="color:#a6e22e">prototype</span>.<span style="color:#a6e22e">toReversed</span>() <span style="color:#f92672">-&gt;</span> Array
+</span></span><span style="display:flex;"><span>    Array.<span style="color:#a6e22e">prototype</span>.<span style="color:#a6e22e">toSorted</span>(<span style="color:#a6e22e">compareFn</span>) <span style="color:#f92672">-&gt;</span> Array
+</span></span><span style="display:flex;"><span>    Array.<span style="color:#a6e22e">prototype</span>.<span style="color:#a6e22e">toSpliced</span>(<span style="color:#a6e22e">start</span>, <span style="color:#a6e22e">deleteCount</span>, ...<span style="color:#a6e22e">items</span>) <span style="color:#f92672">-&gt;</span> Array
+</span></span><span style="display:flex;"><span>    Array.<span style="color:#a6e22e">prototype</span>.<span style="color:#66d9ef">with</span>(<span style="color:#a6e22e">index</span>, <span style="color:#a6e22e">value</span>) <span style="color:#f92672">-&gt;</span> Array
+</span></span></code></pre></div><p>Let&rsquo;s see some of these in action. Imagine we have an unsorted array of numbers.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">array</span> <span style="color:#f92672">=</span> [<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">5</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">6</span>,<span style="color:#ae81ff">7</span>,<span style="color:#ae81ff">5</span>,<span style="color:#ae81ff">1</span>];
+</span></span></code></pre></div><p>Our goal is to get the three smallest numbers from it. But the original array must stay the same, because we need it in it&rsquo;s original order for later. Here is (one of many) solutions we could propose, without the newly added methods.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">arrayCopy</span> <span style="color:#f92672">=</span> [...<span style="color:#a6e22e">array</span>];
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">arrayCopy</span>.<span style="color:#a6e22e">sort</span>((<span style="color:#a6e22e">a</span>,<span style="color:#a6e22e">b</span>) =&gt; <span style="color:#a6e22e">a</span><span style="color:#f92672">-</span><span style="color:#a6e22e">b</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">threeSmallestNumbers</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">arrayCopy</span>.<span style="color:#a6e22e">splice</span>(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">3</span>);
+</span></span></code></pre></div><p>Nothing wrong with this approach - we create a shallow copy of the array (would need to be a deep one if we were sorting objects), sort the copied array, and splice out the three smallest elements. The original array is untouched, but we needed to manually create the copy.</p>
+<p>Let&rsquo;s see how we can do this with the new methods:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">threeSmallestNumbers</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">array</span>
+</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">toSorted</span>((<span style="color:#a6e22e">a</span>,<span style="color:#a6e22e">b</span>) =&gt; <span style="color:#a6e22e">a</span><span style="color:#f92672">-</span><span style="color:#a6e22e">b</span>)
+</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">toSpliced</span>(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">3</span>);
+</span></span></code></pre></div><p><strong>A lot easier to read and understand, right?</strong></p>
+<hr>
+<p>These are by no means all changes. If you want to find out more about all the changes ECMAscript 2023 will bring, check out these useful links:</p>
+<ul>
+<li><a href="https://tc39.es/ecma262/2023/">Language Specification</a></li>
+<li><a href="https://github.com/tc39/proposal-change-array-by-copy">Change Array by Copy Proposal</a></li>
+<li><a href="https://github.com/tc39/proposal-array-find-from-last">FindLast Proposal</a></li>
+<li><a href="https://github.com/tc39/proposal-symbols-as-weakmap-keys">Symbols as Weakmap Keys Proposal</a></li>
+<li><a href="https://github.com/tc39/proposal-hashbang">Hashbang Proposal</a></li>
+</ul>
+
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+        </main><footer class="site-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="site-footer-logo"><a href="https://9320.tech/"><img style="width: 168px; height: 35.5px;" src="https://9320.tech/images/logo-horizontal-white.png" alt="logo-footer"></a></div>
+      </div>
+      
+      <div class="col-lg-3 col-md-6">
+        <div class="site-footer-widget">
+          <h5 class="site-footer-widget-title">Contact Info</h5>
+          <p class="site-footer-widget-description">
+            11000 Belgrade, Serbia
+            
+            <br>
+            <a href="mailto:office@9320.tech">office@9320.tech</a>
+          </p>
+        </div>
+      </div>
+      
+      
+      <div class="col-lg-2 col-md-6">
+        <div class="site-footer-widget">
+          <h5 class="site-footer-widget-title">Site Map</h5>
+          <ul class="site-footer-widget-links">
+            
+            <li><a href="https://9320.tech/en/about">About Us</a></li>
+            
+            <li><a href="https://9320.tech/en/portfolio">Services</a></li>
+            
+            <li><a href="https://9320.tech/en/blog">Blog</a></li>
+            
+            <li><a href="https://9320.tech/en/agro-invest">AgroInvest</a></li>
+            
+            <li><a href="https://9320.tech/en/contact">Contact</a></li>
+            
+          </ul>
+        </div>
+      </div>
+      
+      
+      <div class="col-lg-2 col-md-6">
+        <div class="site-footer-widget">
+          <h5 class="site-footer-widget-title">Follow our Work!</h5>
+          <ul class="site-footer-widget-links">
+            
+              <li><a target="_blank" href="https://github.com/tech9320">GitHub</a></li>
+            
+              <li><a target="_blank" href="https://www.linkedin.com/company/tech9320">LinkedIn</a></li>
+            
+          </ul>
+        </div>
+      </div>
+      
+      
+      <div class="col-lg-3 col-md-6">
+        <div class="site-footer-widget">
+          <h5 class="site-footer-widget-title">We are here to help</h5>
+          <p class="site-footer-widget-description">
+            Web Site? Sure!<br>An App? Sure!<br>High Quality Guaranteed!
+          </p>
+        </div>
+      </div>
+      
+      <div class="col-lg-2 col-12">
+        <a href="#top" class="site-footer-widget-top">
+          <img src="https://9320.tech/images/to-top.svg" alt="back-to-top">
+          <p>
+            Return to
+            <br>
+            the top
+          </p>
+        </a>
+      </div>
+      <div class="col-12">
+        <div class="site-footer-copyright">
+          <p>© Copyright 2023 - HUGO theme by <a href="https://staticmania.com/" target="_blank">StaticMania</a>. Website by the Tech9320 team </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+<script src="https://9320.tech/js/vendor.min.js"></script>
+
+<script src="https://9320.tech/js/script.min.js"></script></body>
+</html>

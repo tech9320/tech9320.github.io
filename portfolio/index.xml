@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tech9320 | Services on Tech9320 | Idea -&gt; Reality</title>
+    <link>https://9320.tech/portfolio/</link>
+    <description>Recent content in Tech9320 | Services on Tech9320 | Idea -&gt; Reality</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 23 Dec 2019 16:48:28 +0600</lastBuildDate><atom:link href="https://9320.tech/portfolio/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Web Applications</title>
+      <link>https://9320.tech/portfolio/web-aplikacije/</link>
+      <pubDate>Wed, 29 Jun 2022 15:55:44 +0600</pubDate>
+      
+      <guid>https://9320.tech/portfolio/web-aplikacije/</guid>
+      <description>Web applications represent user interaction with the product, creating on the one hand values for the company and on the other hand satisfaction of the user with the provided service.</description>
+    </item>
+    
+    <item>
+      <title>Websites</title>
+      <link>https://9320.tech/portfolio/web-sajtovi/</link>
+      <pubDate>Wed, 22 Jun 2022 15:55:44 +0600</pubDate>
+      
+      <guid>https://9320.tech/portfolio/web-sajtovi/</guid>
+      <description>Websites are something that differentiates a company or individual from the rest of the competition.</description>
+    </item>
+    
+    <item>
+      <title>Desktop Applications</title>
+      <link>https://9320.tech/portfolio/desktop-aplikacije/</link>
+      <pubDate>Tue, 21 Jun 2022 20:56:42 +0600</pubDate>
+      
+      <guid>https://9320.tech/portfolio/desktop-aplikacije/</guid>
+      <description>In the time when internet is widespread, developing a desktop application may sound like a total waste of time, right?</description>
+    </item>
+    
+    <item>
+      <title>Mobile Applications</title>
+      <link>https://9320.tech/portfolio/mobilne-aplikacije/</link>
+      <pubDate>Mon, 23 Dec 2019 15:56:43 +0600</pubDate>
+      
+      <guid>https://9320.tech/portfolio/mobilne-aplikacije/</guid>
+      <description>At the times when smartphones are becoming an indispensable part of our everyday life, making software product in a form of mobile application is necessity for establishing huge userbase.</description>
+    </item>
+    
+    <item>
+      <title>Other Services</title>
+      <link>https://9320.tech/portfolio/ostalo/</link>
+      <pubDate>Sat, 23 Dec 2017 15:58:10 +0600</pubDate>
+      
+      <guid>https://9320.tech/portfolio/ostalo/</guid>
+      <description>If you feel like your requirements falls out of the scope of services we provide, feel free to contact us for consultation.</description>
+    </item>
+    
+  </channel>
+</rss>
