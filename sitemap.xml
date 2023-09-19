@@ -1,16 +1,75 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  
-  <sitemap>
-    <loc>https://9320.tech/sr/sitemap.xml</loc>
-    
-  </sitemap>
-  
-  <sitemap>
-    <loc>https://9320.tech/en/sitemap.xml</loc>
-    
-      <lastmod>2023-09-16T09:45:06+06:00</lastmod>
-    
-  </sitemap>
-  
-</sitemapindex>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://9320.tech/blog/serblink/</loc>
+    <lastmod>2023-09-16T09:45:06+06:00</lastmod>
+  </url><url>
+    <loc>https://9320.tech/</loc>
+    <lastmod>2023-09-16T09:45:06+06:00</lastmod>
+  </url><url>
+    <loc>https://9320.tech/blog/susan-kare/</loc>
+    <lastmod>2023-08-04T09:45:06+06:00</lastmod>
+  </url><url>
+    <loc>https://9320.tech/blog/elementals/</loc>
+    <lastmod>2023-07-12T09:45:06+06:00</lastmod>
+  </url><url>
+    <loc>https://9320.tech/blog/passkeys/</loc>
+    <lastmod>2023-07-08T16:45:06+06:00</lastmod>
+  </url><url>
+    <loc>https://9320.tech/blog/angular-signals/</loc>
+    <lastmod>2023-06-27T16:00:06+06:00</lastmod>
+  </url><url>
+    <loc>https://9320.tech/blog/nodejs-versions/</loc>
+    <lastmod>2023-05-11T16:45:06+06:00</lastmod>
+  </url><url>
+    <loc>https://9320.tech/agro-invest/</loc>
+    <lastmod>2023-05-05T18:15:33+06:00</lastmod>
+  </url><url>
+    <loc>https://9320.tech/blog/1681665695-ecma/</loc>
+    <lastmod>2023-04-30T13:45:06+06:00</lastmod>
+  </url><url>
+    <loc>https://9320.tech/blog/1681760950-pwa/</loc>
+    <lastmod>2023-04-18T09:45:06+06:00</lastmod>
+  </url><url>
+    <loc>https://9320.tech/blog/supply-chain-forum/</loc>
+    <lastmod>2023-04-02T09:45:06+06:00</lastmod>
+  </url><url>
+    <loc>https://9320.tech/blog/egzakta/</loc>
+    <lastmod>2022-12-23T09:45:06+06:00</lastmod>
+  </url><url>
+    <loc>https://9320.tech/blog/blog-post-1/</loc>
+    <lastmod>2022-10-10T13:45:06+06:00</lastmod>
+  </url><url>
+    <loc>https://9320.tech/portfolio/web-aplikacije/</loc>
+    <lastmod>2022-06-29T15:55:44+06:00</lastmod>
+  </url><url>
+    <loc>https://9320.tech/portfolio/web-sajtovi/</loc>
+    <lastmod>2022-06-22T15:55:44+06:00</lastmod>
+  </url><url>
+    <loc>https://9320.tech/portfolio/desktop-aplikacije/</loc>
+    <lastmod>2022-06-21T20:56:42+06:00</lastmod>
+  </url><url>
+    <loc>https://9320.tech/blog/</loc>
+    <lastmod>2019-12-23T20:17:01+06:00</lastmod>
+  </url><url>
+    <loc>https://9320.tech/contact/</loc>
+    <lastmod>2019-12-23T20:17:01+06:00</lastmod>
+  </url><url>
+    <loc>https://9320.tech/portfolio/</loc>
+    <lastmod>2019-12-23T16:48:28+06:00</lastmod>
+  </url><url>
+    <loc>https://9320.tech/portfolio/mobilne-aplikacije/</loc>
+    <lastmod>2019-12-23T15:56:43+06:00</lastmod>
+  </url><url>
+    <loc>https://9320.tech/about/</loc>
+    <lastmod>2018-07-12T18:19:33+06:00</lastmod>
+  </url><url>
+    <loc>https://9320.tech/portfolio/ostalo/</loc>
+    <lastmod>2017-12-23T15:58:10+06:00</lastmod>
+  </url><url>
+    <loc>https://9320.tech/categories/</loc>
+  </url><url>
+    <loc>https://9320.tech/tags/</loc>
+  </url>
+</urlset>
