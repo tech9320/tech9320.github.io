@@ -6,7 +6,16 @@
     <description>Recent content on Tech9320 | Idea -&gt; Reality</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 11 Oct 2023 11:00:06 +0600</lastBuildDate><atom:link href="https://9320.tech/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 05 Nov 2023 13:45:06 +0600</lastBuildDate><atom:link href="https://9320.tech/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>TypeScript Guide: Conditional Types</title>
+      <link>https://9320.tech/blog/conditional-types/</link>
+      <pubDate>Sun, 05 Nov 2023 13:45:06 +0600</pubDate>
+      
+      <guid>https://9320.tech/blog/conditional-types/</guid>
+      <description>I like to imagine TypeScript as the superhero version of JavaScript - armed with an impenetrable armor of static typing.</description>
+    </item>
+    
     <item>
       <title>Pioneering Street Art - Blek le Rat</title>
       <link>https://9320.tech/blog/blek-le-rat/</link>

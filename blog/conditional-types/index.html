@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8" />
+  <title>TypeScript Guide: Conditional Types</title>
+
+  <!-- mobile responsive meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <meta name="google-site-verification" content="MYGPhv84lxdH6Eh-_y0-LHNSoP2akj4mYfURVb42oVY" />
+  
+  <meta name="author" content="Tech9320">
+  
+  <meta name="generator" content="Hugo 0.102.2" />
+
+  <!-- Bootstrap -->
+  
+  <link rel="stylesheet" href="https://9320.tech/css/bootstrap.min.css" />
+  <!-- font-awesome -->
+  <link rel="stylesheet" href="https://9320.tech/font-awesome/css/font-awesome.min.css" />
+  <!-- Main Stylesheets -->
+  
+  <link href="https://9320.tech/scss/style.min.css" rel="stylesheet" />
+  
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QXRDBKKF8K"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-QXRDBKKF8K', { 'anonymize_ip': false });
+}
+</script>
+
+  
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'G-QXRDBKKF8K', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+  
+  <link rel="shortcut icon" href="https://9320.tech/images/favicon.png" type="image/x-icon" />
+  <link rel="icon" href="https://9320.tech/images/favicon.png" type="image/x-icon" />
+</head><body><nav class="navbar navbar-expand-lg site-navigation">
+  <div class="container">
+    <a class="navbar-brand" href="https://9320.tech/" style="width: 300px">
+      <img style="width: 168px; height: 35px; max-width: 168px" src="https://9320.tech/images/logo-horizontal-black.png" alt="logo" />
+    </a>
+    <button
+      class="navbar-toggler collapsed"
+      type="button"
+      data-toggle="collapse"
+      data-target="#sitenavbar"
+    >
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="sitenavbar">
+      <ul class="navbar-nav ml-auto main-nav">
+           
+        <li class="nav-item">
+          <a class="nav-link" href="/">Home Page</a>
+        </li>
+          
+        <li class="nav-item">
+          <a class="nav-link" href="/about/">About Us</a>
+        </li>
+          
+        <li class="nav-item">
+          <a class="nav-link" href="/portfolio/">Services</a>
+        </li>
+          
+        <li class="nav-item">
+          <a class="nav-link" href="/blog/">Blog</a>
+        </li>
+          
+        <li class="nav-item">
+          <a class="nav-link blink" href="/agro-invest/">AgroInvest</a>
+        </li>
+          
+        <li class="nav-item">
+          <a
+            class="nav-link btn btn-sm btn-primary btn-sm-rounded"
+            href="/contact/"
+          >
+            <span class="btn-area">
+              <span data-text="Contact"> Contact </span>
+            </span>
+          </a>
+        </li>
+         
+      </ul>
+    </div>
+  </div>
+</nav>
+<main>
+
+<section class="site-blog details">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-12">
+        <article class="site-blog-details">
+          <p><span>November 5, 2023</span> by <span>Stevan Radovanović</span></p>
+          <h2 class="blog-title">TypeScript Guide: Conditional Types</h2>
+          <p class="feature-image-wrap">
+            <img class="feature-image" src="https://9320.tech/images/blog/banner-for-blogs.jpeg" alt="blog-feature-image">
+          </p>
+          <p>I like to imagine TypeScript as the superhero version of JavaScript - armed with an impenetrable armor of static typing. It&rsquo;s like having a trusty sidekick for your code, making sure nothing sneaky slips through the cracks. Among its nifty features, we&rsquo;ve got these cool conditional types – think of them as the shape-shifters of the TypeScript world, here to make your code more flexible and fun. In my couple of years in the industry, I&rsquo;ve bumped into TypeScript conditional types just once. But that one encounter was like stumbling upon a hidden treasure chest that piqued my curiosity and made me dive deeper into their mysteries. Now, I&rsquo;m on a mission to unravel their secrets and share this newfound wisdom with the world. So, join me on this journey as we shed light on these rare gems and see how they can elevate your coding game.</p>
+<p>The basic syntax for a conditional type looks like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">type</span> <span style="color:#a6e22e">MyConditionalType</span>&lt;<span style="color:#f92672">T</span>&gt; <span style="color:#f92672">=</span> <span style="color:#a6e22e">T</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">SomeCondition</span> <span style="color:#f92672">?</span> <span style="color:#a6e22e">TypeIfTrue</span> : <span style="color:#66d9ef">TypeIfFalse</span>;
+</span></span><span style="display:flex;"><span>.
+</span></span></code></pre></div><p>The code defines a TypeScript conditional type <code>MyConditionalType</code> that takes a generic type parameter <code>T</code>. It checks if <code>T</code> satisfies a condition represented by <code>SomeCondition</code>. If <code>T</code> meets this condition, it evaluates to <code>TypeIfTrue</code>, otherwise, it results in <code>TypeIfFalse</code>. In essence, this conditional type allows you to dynamically choose one of two types for <code>T</code> based on a <code>Boolean</code> condition, making it a versatile tool for creating flexible and expressive type definitions that adapt to different scenarios.</p>
+<p>But this is all too theoretical - let&rsquo;s see this bad boy in action. Ever heard of <code>ReturnType&lt;Type&gt;</code>? It&rsquo;s a built-in utility type, commonly used to construct a type consisting of the return type of function <code>Type</code>. This is how it works, illustrated by a very simple example:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">add</span>(<span style="color:#a6e22e">a</span>: <span style="color:#66d9ef">number</span>, <span style="color:#a6e22e">b</span>: <span style="color:#66d9ef">number</span>)<span style="color:#f92672">:</span> <span style="color:#66d9ef">number</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">a</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">b</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">type</span> <span style="color:#a6e22e">AddResult</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">ReturnType</span>&lt;<span style="color:#f92672">typeof</span> <span style="color:#a6e22e">add</span>&gt;;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">result</span>: <span style="color:#66d9ef">AddResult</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span>;
+</span></span><span style="display:flex;"><span>.
+</span></span></code></pre></div><p>But, did you know that, under the hood, it uses conditional types?</p>
+<p>This is how it&rsquo;s implemented:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">type</span> <span style="color:#a6e22e">ReturnType</span>&lt;<span style="color:#f92672">T</span> <span style="color:#a6e22e">extends</span> <span style="color:#960050;background-color:#1e0010">(</span><span style="color:#a6e22e">...args</span><span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#a6e22e">any</span><span style="color:#960050;background-color:#1e0010">)</span> <span style="color:#960050;background-color:#1e0010">=</span>&gt; <span style="color:#66d9ef">any</span><span style="color:#f92672">&gt;</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">T</span> <span style="color:#66d9ef">extends</span> (...<span style="color:#a6e22e">args</span>: <span style="color:#66d9ef">any</span>) <span style="color:#f92672">=&gt;</span> <span style="color:#66d9ef">infer</span> <span style="color:#a6e22e">R</span> <span style="color:#f92672">?</span> <span style="color:#a6e22e">R</span> : <span style="color:#66d9ef">any</span>;
+</span></span><span style="display:flex;"><span>.
+</span></span></code></pre></div><p>Woah. That&rsquo;s a lot of keywords and types. Let&rsquo;s try and dissect it and see how conditional types are used here.</p>
+<ol>
+<li>
+<p><code>type ReturnType&lt;T extends (...args: any) =&gt; any&gt;</code>: This tells us that <code>ReturnType</code> is a type that takes a generic type parameter <code>T</code>, which must be a function type taking any number of arguments and returning any type.</p>
+</li>
+<li>
+<p><code>T extends (...args: any) =&gt; infer R</code>: This is the first part of the conditional type. It checks whether the generic type <code>T</code> extends or matches the shape of a function that takes any number of arguments. If this condition is met, it proceeds to the next part.</p>
+</li>
+<li>
+<p><code>? R : any</code>: This is the second part of the conditional type. If the condition <code>T extends (...args: any) =&gt; infer R</code> is true, it infers the return type of the function (represented by <code>infer R</code>) and returns it as <code>R</code>. If the condition is false, it defaults to the type <code>any</code>.</p>
+</li>
+</ol>
+<p>Cool, right? Let&rsquo;s create an example ourselves!</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">type</span> <span style="color:#a6e22e">ObjectsReadonly</span>&lt;<span style="color:#f92672">T</span>&gt; <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>    [<span style="color:#a6e22e">K</span> <span style="color:#66d9ef">in</span> <span style="color:#66d9ef">keyof</span> <span style="color:#a6e22e">T</span>]<span style="color:#f92672">:</span> <span style="color:#a6e22e">T</span>[<span style="color:#a6e22e">K</span>] <span style="color:#66d9ef">extends</span> <span style="color:#66d9ef">object</span> <span style="color:#f92672">?</span> <span style="color:#a6e22e">Readonly</span>&lt;<span style="color:#f92672">T</span><span style="color:#960050;background-color:#1e0010">[</span><span style="color:#a6e22e">K</span><span style="color:#960050;background-color:#1e0010">]</span>&gt; <span style="color:#f92672">:</span> <span style="color:#a6e22e">T</span>[<span style="color:#a6e22e">K</span>];
+</span></span><span style="display:flex;"><span>  };
+</span></span><span style="display:flex;"><span>.              
+</span></span></code></pre></div><p>So, let&rsquo;s see what do we got here. ObjectReadonly is a <strong>generic mapped</strong> type. For every key of the original type T, it checks whether the value is an object, and, based on that assumption, makes all properties of these nested objects - read only. Primitive values on the other hand, stay unaltered.</p>
+<p>Where can we use this, you may ask? The snippet below might clear that up for you!</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Product</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">publicId</span>: <span style="color:#66d9ef">string</span>;
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">publicSKU</span>: <span style="color:#66d9ef">string</span>;
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">isPhysical</span>: <span style="color:#66d9ef">boolean</span>;
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">privateData</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">privateId</span>: <span style="color:#66d9ef">string</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// ...
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">exampleObject</span>: <span style="color:#66d9ef">ObjectsReadonly</span>&lt;<span style="color:#f92672">Product</span>&gt; <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">publicId</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;public-id&#39;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">publicSKU</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;public-sku&#39;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">isPhysical</span>: <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">privateData</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">privateId</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;private-id&#39;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// ...
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      }
+</span></span><span style="display:flex;"><span>  };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">/* This is fine! Primitive values are open to changes! */</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">exampleObject</span>.<span style="color:#a6e22e">publicId</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;new value&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">/* Defcon 1! All properties in nested objects are readonly! This will not work */</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">exampleObject</span>.<span style="color:#a6e22e">privateData</span>.<span style="color:#a6e22e">privateId</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;new value&#39;</span>;
+</span></span><span style="display:flex;"><span>.
+</span></span></code></pre></div><p>Have you ever used conditional types in your code? At Tech9320, we try to leverage them whenever we can, along with other nifty little tricks TypeScript has up it&rsquo;s sleeve. For more on those tricks - keep following our blog!</p>
+<p>Cheers!</p>
+
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+        </main><footer class="site-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="site-footer-logo"><a href="https://9320.tech/"><img style="width: 168px; height: 35.5px;" src="https://9320.tech/images/logo-horizontal-white.png" alt="logo-footer"></a></div>
+      </div>
+      
+      <div class="col-lg-3 col-md-6">
+        <div class="site-footer-widget">
+          <h5 class="site-footer-widget-title">Contact Info</h5>
+          <p class="site-footer-widget-description">
+            11000 Belgrade, Serbia
+            
+            <br>
+            <a href="mailto:office@9320.tech">office@9320.tech</a>
+          </p>
+        </div>
+      </div>
+      
+      
+      <div class="col-lg-2 col-md-6">
+        <div class="site-footer-widget">
+          <h5 class="site-footer-widget-title">Site Map</h5>
+          <ul class="site-footer-widget-links">
+            
+            <li><a href="https://9320.tech/about">About Us</a></li>
+            
+            <li><a href="https://9320.tech/portfolio">Services</a></li>
+            
+            <li><a href="https://9320.tech/blog">Blog</a></li>
+            
+            <li><a href="https://9320.tech/agro-invest">AgroInvest</a></li>
+            
+            <li><a href="https://9320.tech/contact">Contact</a></li>
+            
+          </ul>
+        </div>
+      </div>
+      
+      
+      <div class="col-lg-2 col-md-6">
+        <div class="site-footer-widget">
+          <h5 class="site-footer-widget-title">Follow our Work!</h5>
+          <ul class="site-footer-widget-links">
+            
+              <li><a target="_blank" href="https://github.com/tech9320">GitHub</a></li>
+            
+              <li><a target="_blank" href="https://www.linkedin.com/company/tech9320">LinkedIn</a></li>
+            
+          </ul>
+        </div>
+      </div>
+      
+      
+      <div class="col-lg-3 col-md-6">
+        <div class="site-footer-widget">
+          <h5 class="site-footer-widget-title">We are here to help</h5>
+          <p class="site-footer-widget-description">
+            Web Site? Sure!<br>An App? Sure!<br>High Quality Guaranteed!
+          </p>
+        </div>
+      </div>
+      
+      <div class="col-lg-2 col-12">
+        <a href="#top" class="site-footer-widget-top">
+          <img src="https://9320.tech/images/to-top.svg" alt="back-to-top">
+          <p>
+            Return to
+            <br>
+            the top
+          </p>
+        </a>
+      </div>
+      <div class="col-12">
+        <div class="site-footer-copyright">
+          <p>© Copyright 2023 - HUGO theme by <a href="https://staticmania.com/" target="_blank">StaticMania</a>. Website by the Tech9320 team </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+<script src="https://9320.tech/js/vendor.min.js"></script>
+
+<script src="https://9320.tech/js/script.min.js"></script></body>
+</html>
