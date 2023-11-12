@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8" />
+  <title>TS Guide: Template Literal Types</title>
+
+  <!-- mobile responsive meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <meta name="google-site-verification" content="MYGPhv84lxdH6Eh-_y0-LHNSoP2akj4mYfURVb42oVY" />
+  
+  <meta name="author" content="Tech9320">
+  
+  <meta name="generator" content="Hugo 0.102.2" />
+
+  <!-- Bootstrap -->
+  
+  <link rel="stylesheet" href="https://9320.tech/css/bootstrap.min.css" />
+  <!-- font-awesome -->
+  <link rel="stylesheet" href="https://9320.tech/font-awesome/css/font-awesome.min.css" />
+  <!-- Main Stylesheets -->
+  
+  <link href="https://9320.tech/scss/style.min.css" rel="stylesheet" />
+  
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QXRDBKKF8K"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-QXRDBKKF8K', { 'anonymize_ip': false });
+}
+</script>
+
+  
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'G-QXRDBKKF8K', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+  
+  <link rel="shortcut icon" href="https://9320.tech/images/favicon.png" type="image/x-icon" />
+  <link rel="icon" href="https://9320.tech/images/favicon.png" type="image/x-icon" />
+</head><body><nav class="navbar navbar-expand-lg site-navigation">
+  <div class="container">
+    <a class="navbar-brand" href="https://9320.tech/" style="width: 300px">
+      <img style="width: 168px; height: 35px; max-width: 168px" src="https://9320.tech/images/logo-horizontal-black.png" alt="logo" />
+    </a>
+    <button
+      class="navbar-toggler collapsed"
+      type="button"
+      data-toggle="collapse"
+      data-target="#sitenavbar"
+    >
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="sitenavbar">
+      <ul class="navbar-nav ml-auto main-nav">
+           
+        <li class="nav-item">
+          <a class="nav-link" href="/">Home Page</a>
+        </li>
+          
+        <li class="nav-item">
+          <a class="nav-link" href="/about/">About Us</a>
+        </li>
+          
+        <li class="nav-item">
+          <a class="nav-link" href="/portfolio/">Services</a>
+        </li>
+          
+        <li class="nav-item">
+          <a class="nav-link" href="/blog/">Blog</a>
+        </li>
+          
+        <li class="nav-item">
+          <a class="nav-link blink" href="/agro-invest/">AgroInvest</a>
+        </li>
+          
+        <li class="nav-item">
+          <a
+            class="nav-link btn btn-sm btn-primary btn-sm-rounded"
+            href="/contact/"
+          >
+            <span class="btn-area">
+              <span data-text="Contact"> Contact </span>
+            </span>
+          </a>
+        </li>
+         
+      </ul>
+    </div>
+  </div>
+</nav>
+<main>
+
+<section class="site-blog details">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-12">
+        <article class="site-blog-details">
+          <p><span>November 12, 2023</span> by <span>Stevan Radovanović</span></p>
+          <h2 class="blog-title">TS Guide: Template Literal Types</h2>
+          <p class="feature-image-wrap">
+            <img class="feature-image" src="https://9320.tech/images/blog/ts-guide/2.png" alt="blog-feature-image">
+          </p>
+          <p>Welcome back to our TypeScript guide! In our last episode, we explored the mysteries of conditional types, the shape-shifters of the TypeScript world. Now, get ready to embark on a journey into the realm of template literal types, where strings become dynamic templates for crafting precise and powerful types.</p>
+<h3 id="the-basics">The Basics</h3>
+<p>Template literal types, introduced in TypeScript 4.1, extend the capabilities of string literal types. With template literal types, we can create types by concatenating and manipulating string literal types, resulting in expressive and reusable type definitions.</p>
+<p>The basic syntax looks like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">type</span> <span style="color:#a6e22e">MyTemplateLiteralType</span>&lt;<span style="color:#f92672">T</span> <span style="color:#a6e22e">extends</span> <span style="color:#a6e22e">string</span>&gt; <span style="color:#f92672">=</span> <span style="color:#e6db74">`Hello, </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">T</span><span style="color:#e6db74">}</span><span style="color:#e6db74">!`</span>;
+</span></span><span style="display:flex;"><span>.
+</span></span></code></pre></div><p>In this example, <code>MyTemplateLiteralType</code> is a type that takes a string literal type <code>T</code> and creates a new type by concatenating it with the string literal <code>&quot;Hello, &quot;</code> and the string literal type <code>T</code>. This might seem trivial at first, but the real magic happens when we start using template literal types for more complex scenarios.</p>
+<h3 id="dynamic-paths-and-keys">Dynamic Paths and Keys</h3>
+<p>One powerful application of template literal types is in creating types that represent dynamic paths or keys in objects. Consider the following example:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">type</span> <span style="color:#a6e22e">PathBuilder</span>&lt;<span style="color:#f92672">T</span> <span style="color:#a6e22e">extends</span> <span style="color:#a6e22e">string</span>&gt; <span style="color:#f92672">=</span> <span style="color:#e6db74">`api/</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">T</span><span style="color:#e6db74">}</span><span style="color:#e6db74">/endpoint`</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">userEndpoint</span>: <span style="color:#66d9ef">PathBuilder</span><span style="color:#f92672">&lt;</span><span style="color:#e6db74">&#34;users&#34;</span><span style="color:#f92672">&gt;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;api/users/endpoint&#34;</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">productEndpoint</span>: <span style="color:#66d9ef">PathBuilder</span><span style="color:#f92672">&lt;</span><span style="color:#e6db74">&#34;products&#34;</span><span style="color:#f92672">&gt;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;api/products/endpoint&#34;</span>;
+</span></span><span style="display:flex;"><span>.
+</span></span></code></pre></div><p>In this case, <code>PathBuilder</code> is a template literal type that dynamically constructs paths for different endpoints. This not only ensures type safety but also makes it easier to refactor and maintain your code.</p>
+<h3 id="string-manipulation">String Manipulation</h3>
+<p>Template literal types enable string manipulation within types, offering a level of flexibility previously unseen in TypeScript. Let&rsquo;s create a type that adds an ellipsis in the middle of a string:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">type</span> <span style="color:#a6e22e">AddEllipsis</span>&lt;<span style="color:#f92672">S</span> <span style="color:#a6e22e">extends</span> <span style="color:#a6e22e">string</span>&gt; <span style="color:#f92672">=</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">S</span> <span style="color:#66d9ef">extends</span> <span style="color:#e6db74">`</span><span style="color:#e6db74">${</span><span style="color:#66d9ef">infer</span> <span style="color:#a6e22e">Start</span><span style="color:#e6db74">}${</span><span style="color:#66d9ef">infer</span> <span style="color:#a6e22e">End</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">?</span> <span style="color:#e6db74">`</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">Start</span><span style="color:#e6db74">}</span><span style="color:#e6db74">...</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">End</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">:</span> <span style="color:#a6e22e">S</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">type</span> <span style="color:#a6e22e">ShortenedGreeting</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">AddEllipsis</span><span style="color:#f92672">&lt;</span><span style="color:#e6db74">&#34;Hello, TypeScript!&#34;</span><span style="color:#f92672">&gt;</span>; <span style="color:#75715e">// &#34;Hello, Typ...&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>.
+</span></span></code></pre></div><p>In this example, <code>AddEllipsis</code> takes a string <code>S</code> and adds an ellipsis in the middle of it, creating a transformation not directly covered by existing TypeScript utility types.</p>
+<h3 id="practical-applications">Practical Applications</h3>
+<p>Let&rsquo;s put template literal types to use in a real-world scenario. Imagine you have a function that fetches data from different API endpoints. With template literal types, you can create a type-safe API client:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">type</span> <span style="color:#a6e22e">ApiEndpoints</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;users&#34;</span> <span style="color:#f92672">|</span> <span style="color:#e6db74">&#34;products&#34;</span> <span style="color:#f92672">|</span> <span style="color:#e6db74">&#34;orders&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">type</span> <span style="color:#a6e22e">ApiClient</span>&lt;<span style="color:#f92672">T</span> <span style="color:#a6e22e">extends</span> <span style="color:#a6e22e">ApiEndpoints</span>&gt; <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">endpoint</span><span style="color:#f92672">:</span> <span style="color:#e6db74">`api/</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">T</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">fetchData</span><span style="color:#f92672">:</span> () <span style="color:#f92672">=&gt;</span> <span style="color:#a6e22e">Promise</span>&lt;<span style="color:#f92672">any</span>&gt;;
+</span></span><span style="display:flex;"><span>    };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">usersApiClient</span>: <span style="color:#66d9ef">ApiClient</span><span style="color:#f92672">&lt;</span><span style="color:#e6db74">&#34;users&#34;</span><span style="color:#f92672">&gt;</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">endpoint</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;api/users&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">fetchData</span><span style="color:#f92672">:</span> () <span style="color:#f92672">=&gt;</span> <span style="color:#a6e22e">fetch</span>(<span style="color:#e6db74">&#34;api/users&#34;</span>).<span style="color:#a6e22e">then</span>((<span style="color:#a6e22e">res</span>) <span style="color:#f92672">=&gt;</span> <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">json</span>()),
+</span></span><span style="display:flex;"><span>    };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">productsApiClient</span>: <span style="color:#66d9ef">ApiClient</span><span style="color:#f92672">&lt;</span><span style="color:#e6db74">&#34;products&#34;</span><span style="color:#f92672">&gt;</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">endpoint</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;api/products&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">fetchData</span><span style="color:#f92672">:</span> () <span style="color:#f92672">=&gt;</span> <span style="color:#a6e22e">fetch</span>(<span style="color:#e6db74">&#34;api/products&#34;</span>).<span style="color:#a6e22e">then</span>((<span style="color:#a6e22e">res</span>) <span style="color:#f92672">=&gt;</span> <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">json</span>()),
+</span></span><span style="display:flex;"><span>    };
+</span></span><span style="display:flex;"><span>.
+</span></span></code></pre></div><p>By using template literal types, we create a type-safe association between the endpoint type (<code>T</code>) and the corresponding API client configuration.</p>
+<h3 id="conclusion">Conclusion</h3>
+<p>In the end, there&rsquo;s a question up in the air - does this have any use in standard projects we encounter everyday?</p>
+<p>I&rsquo;ve personally tinkered around with this concept, and found one very interesting use-case that I can see being useful in a lot of places:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">type</span> <span style="color:#a6e22e">ContainsString</span>&lt;<span style="color:#f92672">T</span> <span style="color:#a6e22e">extends</span> <span style="color:#a6e22e">string</span>&gt; <span style="color:#f92672">=</span> <span style="color:#e6db74">`</span><span style="color:#e6db74">${</span><span style="color:#66d9ef">string</span><span style="color:#e6db74">}${</span><span style="color:#a6e22e">T</span><span style="color:#e6db74">}${</span><span style="color:#66d9ef">string</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/* Valid */</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">a</span>: <span style="color:#66d9ef">ContainsString</span><span style="color:#f92672">&lt;</span><span style="color:#e6db74">&#34;9320&#34;</span><span style="color:#f92672">&gt;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Tech9320 rocks!&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/* Also valid */</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">a</span>: <span style="color:#66d9ef">ContainsString</span><span style="color:#f92672">&lt;</span><span style="color:#e6db74">&#34;9320&#34;</span><span style="color:#f92672">&gt;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;This string ends with 9320&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/* No longer valid! */</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">a</span>: <span style="color:#66d9ef">ContainsString</span><span style="color:#f92672">&lt;</span><span style="color:#e6db74">&#34;9320&#34;</span><span style="color:#f92672">&gt;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Nope, sorry, not gonna work&#34;</span>;
+</span></span><span style="display:flex;"><span>.
+</span></span></code></pre></div><p>It&rsquo;s something I&rsquo;ll definitely use in the future!</p>
+<p>In the next installment of our TypeScript series, we&rsquo;ll explore another fascinating feature that enhances the developer experience. Until then, keep coding with confidence!</p>
+<p>Stay tuned for more TypeScript adventures at Tech9320!</p>
+
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+        </main><footer class="site-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="site-footer-logo"><a href="https://9320.tech/"><img style="width: 168px; height: 35.5px;" src="https://9320.tech/images/logo-horizontal-white.png" alt="logo-footer"></a></div>
+      </div>
+      
+      <div class="col-lg-3 col-md-6">
+        <div class="site-footer-widget">
+          <h5 class="site-footer-widget-title">Contact Info</h5>
+          <p class="site-footer-widget-description">
+            11000 Belgrade, Serbia
+            
+            <br>
+            <a href="mailto:office@9320.tech">office@9320.tech</a>
+          </p>
+        </div>
+      </div>
+      
+      
+      <div class="col-lg-2 col-md-6">
+        <div class="site-footer-widget">
+          <h5 class="site-footer-widget-title">Site Map</h5>
+          <ul class="site-footer-widget-links">
+            
+            <li><a href="https://9320.tech/about">About Us</a></li>
+            
+            <li><a href="https://9320.tech/portfolio">Services</a></li>
+            
+            <li><a href="https://9320.tech/blog">Blog</a></li>
+            
+            <li><a href="https://9320.tech/agro-invest">AgroInvest</a></li>
+            
+            <li><a href="https://9320.tech/contact">Contact</a></li>
+            
+          </ul>
+        </div>
+      </div>
+      
+      
+      <div class="col-lg-2 col-md-6">
+        <div class="site-footer-widget">
+          <h5 class="site-footer-widget-title">Follow our Work!</h5>
+          <ul class="site-footer-widget-links">
+            
+              <li><a target="_blank" href="https://github.com/tech9320">GitHub</a></li>
+            
+              <li><a target="_blank" href="https://www.linkedin.com/company/tech9320">LinkedIn</a></li>
+            
+          </ul>
+        </div>
+      </div>
+      
+      
+      <div class="col-lg-3 col-md-6">
+        <div class="site-footer-widget">
+          <h5 class="site-footer-widget-title">We are here to help</h5>
+          <p class="site-footer-widget-description">
+            Web Site? Sure!<br>An App? Sure!<br>High Quality Guaranteed!
+          </p>
+        </div>
+      </div>
+      
+      <div class="col-lg-2 col-12">
+        <a href="#top" class="site-footer-widget-top">
+          <img src="https://9320.tech/images/to-top.svg" alt="back-to-top">
+          <p>
+            Return to
+            <br>
+            the top
+          </p>
+        </a>
+      </div>
+      <div class="col-12">
+        <div class="site-footer-copyright">
+          <p>© Copyright 2023 - HUGO theme by <a href="https://staticmania.com/" target="_blank">StaticMania</a>. Website by the Tech9320 team </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+<script src="https://9320.tech/js/vendor.min.js"></script>
+
+<script src="https://9320.tech/js/script.min.js"></script></body>
+</html>

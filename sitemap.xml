@@ -3,9 +3,12 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://9320.tech/</loc>
-    <lastmod>2023-11-05T13:45:06+06:00</lastmod>
+    <lastmod>2023-11-12T13:45:06+06:00</lastmod>
   </url><url>
-    <loc>https://9320.tech/blog/conditional-types/</loc>
+    <loc>https://9320.tech/blog/ts-guide-template-literal-types/</loc>
+    <lastmod>2023-11-12T13:45:06+06:00</lastmod>
+  </url><url>
+    <loc>https://9320.tech/blog/ts-guide-conditional-types/</loc>
     <lastmod>2023-11-05T13:45:06+06:00</lastmod>
   </url><url>
     <loc>https://9320.tech/blog/blek-le-rat/</loc>

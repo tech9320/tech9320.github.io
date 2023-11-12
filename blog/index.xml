@@ -8,11 +8,20 @@
     <language>en</language>
     <lastBuildDate>Mon, 23 Dec 2019 20:17:01 +0600</lastBuildDate><atom:link href="https://9320.tech/blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>TypeScript Guide: Conditional Types</title>
-      <link>https://9320.tech/blog/conditional-types/</link>
+      <title>TS Guide: Template Literal Types</title>
+      <link>https://9320.tech/blog/ts-guide-template-literal-types/</link>
+      <pubDate>Sun, 12 Nov 2023 13:45:06 +0600</pubDate>
+      
+      <guid>https://9320.tech/blog/ts-guide-template-literal-types/</guid>
+      <description>Welcome back to our TypeScript guide! In our last episode, we explored the mysteries of conditional types, the shape-shifters of the TypeScript world.</description>
+    </item>
+    
+    <item>
+      <title>TS Guide: Conditional Types</title>
+      <link>https://9320.tech/blog/ts-guide-conditional-types/</link>
       <pubDate>Sun, 05 Nov 2023 13:45:06 +0600</pubDate>
       
-      <guid>https://9320.tech/blog/conditional-types/</guid>
+      <guid>https://9320.tech/blog/ts-guide-conditional-types/</guid>
       <description>I like to imagine TypeScript as the superhero version of JavaScript - armed with an impenetrable armor of static typing.</description>
     </item>
     
