@@ -6,7 +6,16 @@
     <description>Recent content on Tech9320 | Idea -&gt; Reality</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 12 Nov 2023 13:45:06 +0600</lastBuildDate><atom:link href="https://9320.tech/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 19 Nov 2023 13:45:06 +0600</lastBuildDate><atom:link href="https://9320.tech/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>TS Guide: Type Guards</title>
+      <link>https://9320.tech/blog/ts-guide-type-guards/</link>
+      <pubDate>Sun, 19 Nov 2023 13:45:06 +0600</pubDate>
+      
+      <guid>https://9320.tech/blog/ts-guide-type-guards/</guid>
+      <description>Welcome back to our TypeScript journey! In our previous installments, we explored conditional types and the versatility of template literal types.</description>
+    </item>
+    
     <item>
       <title>TS Guide: Template Literal Types</title>
       <link>https://9320.tech/blog/ts-guide-template-literal-types/</link>

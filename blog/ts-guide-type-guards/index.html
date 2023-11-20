@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8" />
+  <title>TS Guide: Type Guards</title>
+
+  <!-- mobile responsive meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <meta name="google-site-verification" content="MYGPhv84lxdH6Eh-_y0-LHNSoP2akj4mYfURVb42oVY" />
+  
+  <meta name="author" content="Tech9320">
+  
+  <meta name="generator" content="Hugo 0.102.2" />
+
+  <!-- Bootstrap -->
+  
+  <link rel="stylesheet" href="https://9320.tech/css/bootstrap.min.css" />
+  <!-- font-awesome -->
+  <link rel="stylesheet" href="https://9320.tech/font-awesome/css/font-awesome.min.css" />
+  <!-- Main Stylesheets -->
+  
+  <link href="https://9320.tech/scss/style.min.css" rel="stylesheet" />
+  
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QXRDBKKF8K"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-QXRDBKKF8K', { 'anonymize_ip': false });
+}
+</script>
+
+  
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'G-QXRDBKKF8K', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+  
+  <link rel="shortcut icon" href="https://9320.tech/images/favicon.png" type="image/x-icon" />
+  <link rel="icon" href="https://9320.tech/images/favicon.png" type="image/x-icon" />
+</head><body><nav class="navbar navbar-expand-lg site-navigation">
+  <div class="container">
+    <a class="navbar-brand" href="https://9320.tech/" style="width: 300px">
+      <img style="width: 168px; height: 35px; max-width: 168px" src="https://9320.tech/images/logo-horizontal-black.png" alt="logo" />
+    </a>
+    <button
+      class="navbar-toggler collapsed"
+      type="button"
+      data-toggle="collapse"
+      data-target="#sitenavbar"
+    >
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="sitenavbar">
+      <ul class="navbar-nav ml-auto main-nav">
+           
+        <li class="nav-item">
+          <a class="nav-link" href="/">Home Page</a>
+        </li>
+          
+        <li class="nav-item">
+          <a class="nav-link" href="/about/">About Us</a>
+        </li>
+          
+        <li class="nav-item">
+          <a class="nav-link" href="/portfolio/">Services</a>
+        </li>
+          
+        <li class="nav-item">
+          <a class="nav-link" href="/blog/">Blog</a>
+        </li>
+          
+        <li class="nav-item">
+          <a class="nav-link blink" href="/agro-invest/">AgroInvest</a>
+        </li>
+          
+        <li class="nav-item">
+          <a
+            class="nav-link btn btn-sm btn-primary btn-sm-rounded"
+            href="/contact/"
+          >
+            <span class="btn-area">
+              <span data-text="Contact"> Contact </span>
+            </span>
+          </a>
+        </li>
+         
+      </ul>
+    </div>
+  </div>
+</nav>
+<main>
+
+<section class="site-blog details">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-12">
+        <article class="site-blog-details">
+          <p><span>November 19, 2023</span> by <span>Stevan Radovanović</span></p>
+          <h2 class="blog-title">TS Guide: Type Guards</h2>
+          <p class="feature-image-wrap">
+            <img class="feature-image" src="https://9320.tech/images/blog/ts-guide/3.png" alt="blog-feature-image">
+          </p>
+          <p>Welcome back to our <code>TypeScript</code> journey! In our previous installments, we explored <a href="../ts-guide-conditional-types">conditional types</a> and the versatility of <a href="../ts-guide-template-literal-types">template literal types</a>. Now, let&rsquo;s delve into yet another practical aspect of <code>TypeScript</code> – type guards. These serve as trusty guardians, helping us navigate through variables of uncertain types, making our code more resilient.</p>
+<h3 id="the-essence-of-type-guards">The Essence of Type Guards</h3>
+<p>While <code>TypeScript</code>&rsquo;s static typing is a powerful ally in catching potential issues early in the development process, there are scenarios, like dealing with user inputs or external data, where types can be less certain. This is where type guards come in handy. They enable us to refine and narrow down the types of our variables, providing clarity in situations where <code>TypeScript</code> might otherwise be unsure.</p>
+<p>To illustrate, let&rsquo;s consider a real-world example where we receive data from an API, and we want to handle it differently based on its structure:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">ApiResponse</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">success</span>: <span style="color:#66d9ef">boolean</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">data</span>: <span style="color:#66d9ef">string</span>[] <span style="color:#f92672">|</span> { <span style="color:#a6e22e">message</span>: <span style="color:#66d9ef">string</span> };
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">processData</span>(<span style="color:#a6e22e">response</span>: <span style="color:#66d9ef">ApiResponse</span>)<span style="color:#f92672">:</span> <span style="color:#66d9ef">string</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (Array.<span style="color:#a6e22e">isArray</span>(<span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">data</span>)) {
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">/* 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">            TypeScript allows us to use the join method, 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">            since it&#39;s aware that the type in this branch
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">            is an array of strings.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">            */</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">join</span>(<span style="color:#e6db74">&#39;, &#39;</span>);
+</span></span><span style="display:flex;"><span>        } <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">/*
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">            Using the info that data is not an array, 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">            and the ApiResponse interface, TS rightly
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">            assumes that the data object has a message
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">            property  
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">            */</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">message</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>.
+</span></span></code></pre></div><p>In this example, the type guard ensures that within each branch of the if statement, <code>TypeScript</code> has a clear understanding of the type of response.data. This way, we can safely and precisely work with the data based on its structure.</p>
+<h3 id="the-power-of-instanceof">The Power of <code>instanceof</code></h3>
+<p><code>TypeScript</code> also provides the instanceof operator, allowing us to check if an object is an instance of a specific class or constructor function. This can be particularly useful when dealing with class-based structures. Consider the following example:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span>    <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Animal</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">makeSound() {</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;Generic animal sound&#39;</span>);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Dog</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">Animal</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">bark() {</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;Woof!&#39;</span>);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">handleAnimal</span>(<span style="color:#a6e22e">a</span>: <span style="color:#66d9ef">Animal</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">a</span> <span style="color:#66d9ef">instanceof</span> <span style="color:#a6e22e">Dog</span>) {
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">// TypeScript recognizes &#39;a&#39; as an instance of Dog
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            <span style="color:#a6e22e">a</span>.<span style="color:#a6e22e">bark</span>(); <span style="color:#75715e">// We can safely call Dog-specific methods
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        } <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">// TypeScript knows &#39;a&#39; is a generic Animal
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            <span style="color:#a6e22e">a</span>.<span style="color:#a6e22e">makeSound</span>(); <span style="color:#75715e">// We can still access methods of the base class
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>.
+</span></span></code></pre></div><p>Here, the <code>instanceof</code> check ensures that <code>TypeScript</code> correctly understands the type of the object, allowing us to call methods specific to that type without causing errors.</p>
+<h3 id="discriminated-unions-for-precise-type-guarding">Discriminated Unions for Precise Type Guarding</h3>
+<p>Now something a little bit more complex - discriminated unions, coupled with type guards, offer a powerful combination. By using a common property, known as a discriminant, we can create extremely precise type guards. Let&rsquo;s explore an example:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">Starship</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;starship&#39;</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">name</span>: <span style="color:#66d9ef">string</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">warpSpeed</span>: <span style="color:#66d9ef">number</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">Planet</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;planet&#39;</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">name</span>: <span style="color:#66d9ef">string</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">population</span>: <span style="color:#66d9ef">number</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">type</span> <span style="color:#a6e22e">CelestialBody</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">Starship</span> <span style="color:#f92672">|</span> <span style="color:#a6e22e">Planet</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">isStarship</span>(<span style="color:#a6e22e">body</span>: <span style="color:#66d9ef">CelestialBody</span>)<span style="color:#f92672">:</span> <span style="color:#a6e22e">body</span> <span style="color:#66d9ef">is</span> <span style="color:#a6e22e">Starship</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">body</span>.<span style="color:#66d9ef">type</span> <span style="color:#f92672">===</span> <span style="color:#e6db74">&#39;starship&#39;</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">exploreCelestialBody</span>(<span style="color:#a6e22e">body</span>: <span style="color:#66d9ef">CelestialBody</span>)<span style="color:#f92672">:</span> <span style="color:#66d9ef">string</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">isStarship</span>(<span style="color:#a6e22e">body</span>)) {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> 
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">`Exploring the starship &#34;</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">body</span>.<span style="color:#a6e22e">name</span><span style="color:#e6db74">}</span><span style="color:#e6db74">&#34; at warp speed </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">body</span>.<span style="color:#a6e22e">warpSpeed</span><span style="color:#e6db74">}</span><span style="color:#e6db74">!`</span>;
+</span></span><span style="display:flex;"><span>        } <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> 
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">`Greetings from the planet &#34;</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">body</span>.<span style="color:#a6e22e">name</span><span style="color:#e6db74">}</span><span style="color:#e6db74">&#34; with a population of </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">body</span>.<span style="color:#a6e22e">population</span><span style="color:#e6db74">}</span><span style="color:#e6db74"> inhabitants!`</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>.
+</span></span></code></pre></div><p>In this example, the <code>type</code> property acts as a <strong>discriminant</strong>, enabling the <code>isStarship</code> type guard to precisely determine whether a given <code>CelestialBody</code> is a <code>Starship</code>. This approach ensures that we can safely access properties specific to a <code>Starship</code> within the conditional block. Pretty cool, right?</p>
+<h3 id="wrapping-up">Wrapping Up</h3>
+<p>Type guards in TypeScript provide a practical means to handle situations where types might be uncertain. Whether checking based on properties, utilizing <code>instanceof</code> for class instances, or combining type guards with discriminated unions, these mechanisms enhance our code&rsquo;s resilience. It&rsquo;s worth noting that <code>TypeScript</code> offers additional type guards, such as <code>typeof</code>, which allows checking the type of a variable at the level of its declaration. Exploring these various type guards equips us with a versatile toolkit for navigating the dynamic aspects of our code.</p>
+<p>As an end note, the writer of this post encourages you to actually think before implementing these concepts in your codebase - just because something is a &ldquo;best practice&rdquo;, doesn&rsquo;t mean it necessarily fits into what you or your team are currently in need of. Over-engineering and reinventing the wheel is an ongoing problem, so thread lightly!</p>
+<p>As always, stay tuned for more <code>TypeScript</code> adventures at Tech9320!</p>
+
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+        </main><footer class="site-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="site-footer-logo"><a href="https://9320.tech/"><img style="width: 168px; height: 35.5px;" src="https://9320.tech/images/logo-horizontal-white.png" alt="logo-footer"></a></div>
+      </div>
+      
+      <div class="col-lg-3 col-md-6">
+        <div class="site-footer-widget">
+          <h5 class="site-footer-widget-title">Contact Info</h5>
+          <p class="site-footer-widget-description">
+            11000 Belgrade, Serbia
+            
+            <br>
+            <a href="mailto:office@9320.tech">office@9320.tech</a>
+          </p>
+        </div>
+      </div>
+      
+      
+      <div class="col-lg-2 col-md-6">
+        <div class="site-footer-widget">
+          <h5 class="site-footer-widget-title">Site Map</h5>
+          <ul class="site-footer-widget-links">
+            
+            <li><a href="https://9320.tech/about">About Us</a></li>
+            
+            <li><a href="https://9320.tech/portfolio">Services</a></li>
+            
+            <li><a href="https://9320.tech/blog">Blog</a></li>
+            
+            <li><a href="https://9320.tech/agro-invest">AgroInvest</a></li>
+            
+            <li><a href="https://9320.tech/contact">Contact</a></li>
+            
+          </ul>
+        </div>
+      </div>
+      
+      
+      <div class="col-lg-2 col-md-6">
+        <div class="site-footer-widget">
+          <h5 class="site-footer-widget-title">Follow our Work!</h5>
+          <ul class="site-footer-widget-links">
+            
+              <li><a target="_blank" href="https://github.com/tech9320">GitHub</a></li>
+            
+              <li><a target="_blank" href="https://www.linkedin.com/company/tech9320">LinkedIn</a></li>
+            
+          </ul>
+        </div>
+      </div>
+      
+      
+      <div class="col-lg-3 col-md-6">
+        <div class="site-footer-widget">
+          <h5 class="site-footer-widget-title">We are here to help</h5>
+          <p class="site-footer-widget-description">
+            Web Site? Sure!<br>An App? Sure!<br>High Quality Guaranteed!
+          </p>
+        </div>
+      </div>
+      
+      <div class="col-lg-2 col-12">
+        <a href="#top" class="site-footer-widget-top">
+          <img src="https://9320.tech/images/to-top.svg" alt="back-to-top">
+          <p>
+            Return to
+            <br>
+            the top
+          </p>
+        </a>
+      </div>
+      <div class="col-12">
+        <div class="site-footer-copyright">
+          <p>© Copyright 2023 - HUGO theme by <a href="https://staticmania.com/" target="_blank">StaticMania</a>. Website by the Tech9320 team </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+<script src="https://9320.tech/js/vendor.min.js"></script>
+
+<script src="https://9320.tech/js/script.min.js"></script></body>
+</html>
