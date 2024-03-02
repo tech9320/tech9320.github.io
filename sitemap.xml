@@ -2,10 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://9320.tech/blog/introducing-helixconnect/</loc>
-    <lastmod>2023-12-19T09:45:06+06:00</lastmod>
+    <loc>https://9320.tech/blog/ps2/</loc>
+    <lastmod>2024-03-02T06:45:06+06:00</lastmod>
   </url><url>
     <loc>https://9320.tech/</loc>
+    <lastmod>2024-03-02T06:45:06+06:00</lastmod>
+  </url><url>
+    <loc>https://9320.tech/blog/introducing-helixconnect/</loc>
     <lastmod>2023-12-19T09:45:06+06:00</lastmod>
   </url><url>
     <loc>https://9320.tech/blog/ts-guide-type-guards/</loc>
