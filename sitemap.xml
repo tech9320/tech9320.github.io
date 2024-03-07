@@ -2,11 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://9320.tech/blog/vision-os-journey/</loc>
+    <lastmod>2024-03-06T13:45:06+06:00</lastmod>
+  </url><url>
+    <loc>https://9320.tech/</loc>
+    <lastmod>2024-03-06T13:45:06+06:00</lastmod>
+  </url><url>
     <loc>https://9320.tech/blog/ps2/</loc>
     <lastmod>2024-03-02T06:45:06+06:00</lastmod>
   </url><url>
-    <loc>https://9320.tech/</loc>
-    <lastmod>2024-03-02T06:45:06+06:00</lastmod>
+    <loc>https://9320.tech/partners/</loc>
+    <lastmod>2024-03-01T20:17:01+06:00</lastmod>
+  </url><url>
+    <loc>https://9320.tech/projects/</loc>
+    <lastmod>2024-03-01T20:17:01+06:00</lastmod>
   </url><url>
     <loc>https://9320.tech/blog/introducing-helixconnect/</loc>
     <lastmod>2023-12-19T09:45:06+06:00</lastmod>
@@ -40,9 +49,6 @@
   </url><url>
     <loc>https://9320.tech/blog/nodejs-versions/</loc>
     <lastmod>2023-05-11T16:45:06+06:00</lastmod>
-  </url><url>
-    <loc>https://9320.tech/agro-invest/</loc>
-    <lastmod>2023-05-05T18:15:33+06:00</lastmod>
   </url><url>
     <loc>https://9320.tech/blog/1681665695-ecma/</loc>
     <lastmod>2023-04-30T13:45:06+06:00</lastmod>
